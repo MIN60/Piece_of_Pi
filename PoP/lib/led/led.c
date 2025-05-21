@@ -14,7 +14,7 @@ int led_init() {
     wiringPiSetup();
     pinMode(LED_PIN, OUTPUT);
     softPwmCreate(LED_PIN, 0, 100);  // 딱 한 번만 생성
-    printf("[LED] 초기화 완료 (핀: %d)\n", LED_PIN);
+    //printf("[LED] 초기화 완료 (핀: %d)\n", LED_PIN);
 
     initialized = 1;
     return 0;
@@ -23,13 +23,13 @@ int led_init() {
 
 int led_on() {
     softPwmWrite(LED_PIN, 100); 
-    printf("[LED] 켜짐\n");
+    //printf("[LED] 켜짐\n");
     return 0;
 }
 
 int led_off() {
     softPwmWrite(LED_PIN, 0); 
-    printf("[LED] 꺼짐\n");
+    //printf("[LED] 꺼짐\n");
     return 0;
 }
 
@@ -47,7 +47,7 @@ int led_set_brightness(const char* level) {
     }
 
     softPwmWrite(LED_PIN, value); //PWM 값 설정
-    printf("[LED] 밝기 설정: %s (%d)\n", level, value);
+    //printf("[LED] 밝기 설정: %s (%d)\n", level, value);
     return 0;
 }
 
@@ -55,6 +55,6 @@ int led_set_brightness(const char* level) {
 int led_clean() {
     softPwmWrite(LED_PIN, 0); // PWM 끄기
     pinMode(LED_PIN, INPUT);  // 핀 입력모드로 초기화
-    printf("[LED] 종료 및 핀 해제\n");
+    //printf("[LED] 종료 및 핀 해제\n");
     return 0;
 }
