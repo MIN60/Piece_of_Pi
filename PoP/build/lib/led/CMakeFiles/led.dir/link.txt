@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libled.so -o libled.so CMakeFiles/led.dir/led.c.o 
