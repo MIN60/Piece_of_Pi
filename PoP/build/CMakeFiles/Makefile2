@@ -209,7 +209,8 @@ common/CMakeFiles/common.dir/clean:
 # Target rules for target server/CMakeFiles/pop_server.dir
 
 # All Build rule for target.
-server/CMakeFiles/pop_server.dir/all:
+server/CMakeFiles/pop_server.dir/all: lib/led/CMakeFiles/led.dir/all
+server/CMakeFiles/pop_server.dir/all: lib/buzzer/CMakeFiles/buzzer.dir/all
 	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/pop_server.dir/build.make server/CMakeFiles/pop_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/pop_server.dir/build.make server/CMakeFiles/pop_server.dir/build
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=7,8,9,10 "Built target pop_server"
@@ -217,7 +218,7 @@ server/CMakeFiles/pop_server.dir/all:
 
 # Build rule for subdir invocation for target.
 server/CMakeFiles/pop_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 4
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 8
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/CMakeFiles/pop_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 0
 .PHONY : server/CMakeFiles/pop_server.dir/rule

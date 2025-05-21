@@ -72,6 +72,48 @@ void led_menu() {
     }
 }
 
+// 부저 메뉴
+void buzzer_menu() {
+    int choice;
+
+    while (1) {
+        printf("\n[BUZZER 제어 메뉴]\n");
+        printf("0. 돌아가기\n");
+        printf("1. 부저 ON\n");
+        printf("2. 부저 OFF\n");
+        printf("선택: ");
+        scanf("%d", &choice);
+
+        if (choice == 0) break;
+
+        switch (choice) {
+            case 1:
+                printf("부저 켜기\n");
+                break;
+            case 2:
+                printf("부저 끄기\n");
+                break;
+
+            default:
+                printf("잘못된 입력\n");
+                continue;
+        }
+
+        CommandArgs* cmd = malloc(sizeof(CommandArgs));
+        cmd->category = 2; 
+        cmd->action = choice;
+        cmd->value[0] = '\0';   
+
+        // 스레드 실행
+        pthread_t tid;
+        if (pthread_create(&tid, NULL, command_thread, (void*)cmd) != 0) {
+            perror("쓰레드 생성 실패");
+            free(cmd);
+        } else {
+            pthread_join(tid, NULL); 
+        }
+    }
+}
 
 
 int main() {
@@ -88,12 +130,15 @@ int main() {
         scanf("%d", &choice);
 
         switch (choice) {
-            case 1:
-                led_menu();
-                break;
             case 0:
                 printf("프로그램을 종료합니다.\n");
                 return 0;
+            case 1:
+                led_menu();
+                break;
+            case 2:
+                buzzer_menu();
+                break;
             default:
                 printf("다시 선택하세욤\n");
         }

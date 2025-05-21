@@ -1,1 +1,1 @@
-/usr/bin/aarch64-linux-gnu-gcc -fPIC -march=armv8-a -shared -Wl,-soname,libbuzzer.so -o libbuzzer.so CMakeFiles/buzzer.dir/buzzer.c.o 
+/usr/bin/aarch64-linux-gnu-gcc -fPIC -march=armv8-a -shared -Wl,-soname,libbuzzer.so -o libbuzzer.so CMakeFiles/buzzer.dir/buzzer.c.o  -lwiringPi -lpthread 

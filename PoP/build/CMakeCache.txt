@@ -199,6 +199,9 @@ PoP_IS_TOP_LEVEL:STATIC=ON
 PoP_SOURCE_DIR:STATIC=/home/veda/PoP/PoP
 
 //Dependencies for the target
+buzzer_LIB_DEPENDS:STATIC=general;wiringPi;general;pthread;
+
+//Dependencies for the target
 led_LIB_DEPENDS:STATIC=general;wiringPi;general;wiringPiDev;general;crypt;general;pthread;general;dl;
 
 
