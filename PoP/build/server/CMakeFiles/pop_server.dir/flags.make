@@ -4,7 +4,7 @@
 # compile C with /usr/bin/aarch64-linux-gnu-gcc
 C_DEFINES = 
 
-C_INCLUDES = -I/home/veda/PoP/PoP/server/../common -I/home/veda/PoP/PoP/server/include -I/home/veda/PoP/PoP/lib/cds -I/home/veda/PoP/PoP/lib/led -I/home/veda/PoP/PoP/lib/buzzer
+C_INCLUDES = -I/home/veda/PoP/PoP/server/../common -I/home/veda/PoP/PoP/server/include -I/home/veda/PoP/PoP/lib/cds -I/home/veda/PoP/PoP/lib/led -I/home/veda/PoP/PoP/lib/buzzer -I/home/veda/PoP/PoP/lib/segment
 
 C_FLAGS = -march=armv8-a -std=gnu99
 

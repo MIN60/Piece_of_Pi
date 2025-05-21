@@ -127,6 +127,7 @@ server/pop_server: server/CMakeFiles/pop_server.dir/build.make
 server/pop_server: lib/cds/libcds.so
 server/pop_server: lib/led/libled.so
 server/pop_server: lib/buzzer/libbuzzer.so
+server/pop_server: lib/segment/libsegment.so
 server/pop_server: server/CMakeFiles/pop_server.dir/link.txt
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --bold --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_4) "Linking C executable pop_server"
 	cd /home/veda/PoP/PoP/build/server && $(CMAKE_COMMAND) -E cmake_link_script CMakeFiles/pop_server.dir/link.txt --verbose=$(VERBOSE)

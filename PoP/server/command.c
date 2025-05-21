@@ -7,6 +7,7 @@ int handle_led_command(int action, const char* value);
 int handle_buzzer_command(int action, const char* value);
 int handle_cds_command(int action, const char* value);
 
+int handle_segment_command(int action, const char* value);
 
 int menu_command(int category, int action, const char* value) {
     switch (category) {
@@ -16,8 +17,10 @@ int menu_command(int category, int action, const char* value) {
             return handle_buzzer_command(action, value);
         case 3:
             return handle_cds_command(action, value);
+        case 4:
+            return handle_segment_command(action, value);
         default:
-            printf("[SYSTEM] 잘못된 category입니다: %d\n", category);
+            printf("[SYSTEM] 잘못된 선택입니다: %d\n", category);
             return -1;
     }
 }
@@ -125,6 +128,42 @@ int handle_cds_command(int action, const char* value) {
         cds_with_led();    
     } else {
         printf("[CDS] 잘못된 명령입니다.\n");
+    }
+
+    return 0;
+}
+
+
+int handle_segment_command(int action, const char* value) {
+    void* handle = dlopen("../lib/segment/libsegment.so", RTLD_LAZY);
+    if (!handle) {
+        fprintf(stderr, "[SEGMENT] dlopen 실패: %s\n", dlerror());
+        return -1;
+    }
+
+    int (*segment_init)();
+    int (*seg_countdown)(int);
+
+    segment_init = dlsym(handle, "segment_init");
+    seg_countdown = dlsym(handle, "seg_countdown");
+
+    if (!segment_init || !seg_countdown) {
+        fprintf(stderr, "[SEGMENT] dlsym 실패\n");
+        dlclose(handle);
+        return -1;
+    }
+
+    segment_init();
+
+    if (action == 1 && value != NULL) {
+        int num = atoi(value);
+        if (num < 0 || num > 9) {
+            printf("[SEGMENT] 0~9 사이 숫자만 입력\n");
+            return -1;
+        }
+        seg_countdown(num);
+    } else {
+        printf("[SEGMENT] 잘못된 명령\n");
     }
 
     return 0;

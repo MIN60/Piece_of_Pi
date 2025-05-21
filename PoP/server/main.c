@@ -157,6 +157,48 @@ void cds_menu() {
 }
 
 
+void segment_menu() {
+    int num;
+
+    while (1) {
+        printf("\n[7세그먼트 제어 메뉴]\n");
+        printf("0. 돌아가기\n");
+        printf("1. 카운트다운 (0~9)\n");
+        printf("선택: ");
+        scanf("%d", &num);
+
+        if (num == 0) break;
+        if (num != 1) {
+            printf("잘못된 입력입니다.\n");
+            continue;
+        }
+
+        int input;
+        printf("카운트다운 시작 숫자 입력 (0~9): ");
+        scanf("%d", &input);
+
+        if (input < 0 || input > 9) {
+            printf("0~9 사이 숫자만 입력하세요.\n");
+            continue;
+        }
+
+        // 명령 구조체
+        CommandArgs* cmd = malloc(sizeof(CommandArgs));
+        cmd->category = 4;
+        cmd->action = 1;
+        snprintf(cmd->value, sizeof(cmd->value), "%d", input);
+
+        pthread_t tid;
+        if (pthread_create(&tid, NULL, command_thread, (void*)cmd) != 0) {
+            perror("쓰레드 생성 실패");
+            free(cmd);
+        } else {
+            pthread_join(tid, NULL);
+        }
+    }
+}
+
+
 
 int main() {
     int choice;
@@ -183,6 +225,9 @@ int main() {
                 break;
             case 3:
                 cds_menu();
+                break;
+            case 4:
+                segment_menu();
                 break;
             default:
                 printf("다시 선택하세욤\n");
