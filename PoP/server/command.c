@@ -5,6 +5,8 @@
 
 int handle_led_command(int action, const char* value);
 int handle_buzzer_command(int action, const char* value);
+int handle_cds_command(int action, const char* value);
+
 
 int menu_command(int category, int action, const char* value) {
     switch (category) {
@@ -12,6 +14,8 @@ int menu_command(int category, int action, const char* value) {
             return handle_led_command(action, value);
         case 2:
             return handle_buzzer_command(action, value);
+        case 3:
+            return handle_cds_command(action, value);
         default:
             printf("[SYSTEM] 잘못된 category입니다: %d\n", category);
             return -1;
@@ -96,3 +100,32 @@ int handle_buzzer_command(int action, const char* value) {
     return 0;
 }
 
+int handle_cds_command(int action, const char* value) {
+    void* handle = dlopen("../lib/cds/libcds.so", RTLD_LAZY);
+    if (!handle) {
+        fprintf(stderr, "[CDS] dlopen 실패: %s\n", dlerror());
+        return -1;
+    }
+
+    int (*cds_get_value)();
+    int (*cds_with_led)();
+
+    cds_get_value = dlsym(handle, "cds_get_value");
+    cds_with_led  = dlsym(handle, "cds_with_led");
+
+    if (!cds_get_value || !cds_with_led) {
+        fprintf(stderr, "[CDS] dlsym 실패\n");
+        dlclose(handle);
+        return -1;
+    }
+
+    if (action == 1) {
+        cds_get_value();      
+    } else if (action == 2) {
+        cds_with_led();    
+    } else {
+        printf("[CDS] 잘못된 명령입니다.\n");
+    }
+
+    return 0;
+}

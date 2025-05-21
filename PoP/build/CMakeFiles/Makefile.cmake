@@ -12,9 +12,9 @@ set(CMAKE_MAKEFILE_DEPENDS
   "CMakeFiles/3.28.3/CMakeSystem.cmake"
   "/home/veda/PoP/PoP/common/CMakeLists.txt"
   "/home/veda/PoP/PoP/lib/buzzer/CMakeLists.txt"
+  "/home/veda/PoP/PoP/lib/cds/CMakeLists.txt"
   "/home/veda/PoP/PoP/lib/led/CMakeLists.txt"
   "/home/veda/PoP/PoP/lib/segment/CMakeLists.txt"
-  "/home/veda/PoP/PoP/lib/sensor/CMakeLists.txt"
   "/home/veda/PoP/PoP/server/CMakeLists.txt"
   "/home/veda/PoP/PoP/toolchain-arm64.cmake"
   "/usr/share/cmake-3.28/Modules/CMakeCInformation.cmake"
@@ -47,7 +47,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "server/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/led/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/buzzer/CMakeFiles/CMakeDirectoryInformation.cmake"
-  "lib/sensor/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lib/cds/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/segment/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
@@ -57,6 +57,6 @@ set(CMAKE_DEPEND_INFO_FILES
   "server/CMakeFiles/pop_server.dir/DependInfo.cmake"
   "lib/led/CMakeFiles/led.dir/DependInfo.cmake"
   "lib/buzzer/CMakeFiles/buzzer.dir/DependInfo.cmake"
-  "lib/sensor/CMakeFiles/sensor.dir/DependInfo.cmake"
+  "lib/cds/CMakeFiles/cds.dir/DependInfo.cmake"
   "lib/segment/CMakeFiles/segment.dir/DependInfo.cmake"
   )

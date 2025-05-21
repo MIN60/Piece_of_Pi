@@ -87,14 +87,14 @@ rebuild_cache/fast: rebuild_cache
 
 # The main all target
 all: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles /home/veda/PoP/PoP/build//CMakeFiles/progress.marks
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 all
+	cd /home/veda/PoP/PoP/build && $(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles /home/veda/PoP/PoP/build/lib/cds//CMakeFiles/progress.marks
+	cd /home/veda/PoP/PoP/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/cds/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 0
 .PHONY : all
 
 # The main clean target
 clean:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 clean
+	cd /home/veda/PoP/PoP/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/cds/clean
 .PHONY : clean
 
 # The main clean target
@@ -103,96 +103,56 @@ clean/fast: clean
 
 # Prepare targets for installation.
 preinstall: all
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/veda/PoP/PoP/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/cds/preinstall
 .PHONY : preinstall
 
 # Prepare targets for installation.
 preinstall/fast:
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 preinstall
+	cd /home/veda/PoP/PoP/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/cds/preinstall
 .PHONY : preinstall/fast
 
 # clear depends
 depend:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
+	cd /home/veda/PoP/PoP/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 1
 .PHONY : depend
 
-#=============================================================================
-# Target rules for targets named common
+# Convenience name for target.
+lib/cds/CMakeFiles/cds.dir/rule:
+	cd /home/veda/PoP/PoP/build && $(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/cds/CMakeFiles/cds.dir/rule
+.PHONY : lib/cds/CMakeFiles/cds.dir/rule
 
-# Build rule for target.
-common: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 common
-.PHONY : common
-
-# fast build rule for target.
-common/fast:
-	$(MAKE) $(MAKESILENT) -f common/CMakeFiles/common.dir/build.make common/CMakeFiles/common.dir/build
-.PHONY : common/fast
-
-#=============================================================================
-# Target rules for targets named pop_server
-
-# Build rule for target.
-pop_server: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pop_server
-.PHONY : pop_server
-
-# fast build rule for target.
-pop_server/fast:
-	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/pop_server.dir/build.make server/CMakeFiles/pop_server.dir/build
-.PHONY : pop_server/fast
-
-#=============================================================================
-# Target rules for targets named led
-
-# Build rule for target.
-led: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 led
-.PHONY : led
-
-# fast build rule for target.
-led/fast:
-	$(MAKE) $(MAKESILENT) -f lib/led/CMakeFiles/led.dir/build.make lib/led/CMakeFiles/led.dir/build
-.PHONY : led/fast
-
-#=============================================================================
-# Target rules for targets named buzzer
-
-# Build rule for target.
-buzzer: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 buzzer
-.PHONY : buzzer
-
-# fast build rule for target.
-buzzer/fast:
-	$(MAKE) $(MAKESILENT) -f lib/buzzer/CMakeFiles/buzzer.dir/build.make lib/buzzer/CMakeFiles/buzzer.dir/build
-.PHONY : buzzer/fast
-
-#=============================================================================
-# Target rules for targets named cds
-
-# Build rule for target.
-cds: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 cds
+# Convenience name for target.
+cds: lib/cds/CMakeFiles/cds.dir/rule
 .PHONY : cds
 
 # fast build rule for target.
 cds/fast:
-	$(MAKE) $(MAKESILENT) -f lib/cds/CMakeFiles/cds.dir/build.make lib/cds/CMakeFiles/cds.dir/build
+	cd /home/veda/PoP/PoP/build && $(MAKE) $(MAKESILENT) -f lib/cds/CMakeFiles/cds.dir/build.make lib/cds/CMakeFiles/cds.dir/build
 .PHONY : cds/fast
 
-#=============================================================================
-# Target rules for targets named segment
+cds.o: cds.c.o
+.PHONY : cds.o
 
-# Build rule for target.
-segment: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 segment
-.PHONY : segment
+# target to build an object file
+cds.c.o:
+	cd /home/veda/PoP/PoP/build && $(MAKE) $(MAKESILENT) -f lib/cds/CMakeFiles/cds.dir/build.make lib/cds/CMakeFiles/cds.dir/cds.c.o
+.PHONY : cds.c.o
 
-# fast build rule for target.
-segment/fast:
-	$(MAKE) $(MAKESILENT) -f lib/segment/CMakeFiles/segment.dir/build.make lib/segment/CMakeFiles/segment.dir/build
-.PHONY : segment/fast
+cds.i: cds.c.i
+.PHONY : cds.i
+
+# target to preprocess a source file
+cds.c.i:
+	cd /home/veda/PoP/PoP/build && $(MAKE) $(MAKESILENT) -f lib/cds/CMakeFiles/cds.dir/build.make lib/cds/CMakeFiles/cds.dir/cds.c.i
+.PHONY : cds.c.i
+
+cds.s: cds.c.s
+.PHONY : cds.s
+
+# target to generate assembly for a file
+cds.c.s:
+	cd /home/veda/PoP/PoP/build && $(MAKE) $(MAKESILENT) -f lib/cds/CMakeFiles/cds.dir/build.make lib/cds/CMakeFiles/cds.dir/cds.c.s
+.PHONY : cds.c.s
 
 # Help Target
 help:
@@ -202,12 +162,10 @@ help:
 	@echo "... depend"
 	@echo "... edit_cache"
 	@echo "... rebuild_cache"
-	@echo "... buzzer"
 	@echo "... cds"
-	@echo "... common"
-	@echo "... led"
-	@echo "... pop_server"
-	@echo "... segment"
+	@echo "... cds.o"
+	@echo "... cds.i"
+	@echo "... cds.s"
 .PHONY : help
 
 
@@ -219,6 +177,6 @@ help:
 # No rule that depends on this can have commands that come from listfiles
 # because they might be regenerated.
 cmake_check_build_system:
-	$(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
+	cd /home/veda/PoP/PoP/build && $(CMAKE_COMMAND) -S$(CMAKE_SOURCE_DIR) -B$(CMAKE_BINARY_DIR) --check-build-system CMakeFiles/Makefile.cmake 0
 .PHONY : cmake_check_build_system
 

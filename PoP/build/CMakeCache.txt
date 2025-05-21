@@ -202,6 +202,9 @@ PoP_SOURCE_DIR:STATIC=/home/veda/PoP/PoP
 buzzer_LIB_DEPENDS:STATIC=general;wiringPi;general;pthread;
 
 //Dependencies for the target
+cds_LIB_DEPENDS:STATIC=general;wiringPi;general;dl;general;pthread;
+
+//Dependencies for the target
 led_LIB_DEPENDS:STATIC=general;wiringPi;general;wiringPiDev;general;crypt;general;pthread;general;dl;
 
 

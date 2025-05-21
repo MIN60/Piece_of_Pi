@@ -12,9 +12,9 @@
 /home/veda/PoP/PoP/build/lib/buzzer/CMakeFiles/buzzer.dir
 /home/veda/PoP/PoP/build/lib/buzzer/CMakeFiles/edit_cache.dir
 /home/veda/PoP/PoP/build/lib/buzzer/CMakeFiles/rebuild_cache.dir
-/home/veda/PoP/PoP/build/lib/sensor/CMakeFiles/sensor.dir
-/home/veda/PoP/PoP/build/lib/sensor/CMakeFiles/edit_cache.dir
-/home/veda/PoP/PoP/build/lib/sensor/CMakeFiles/rebuild_cache.dir
+/home/veda/PoP/PoP/build/lib/cds/CMakeFiles/cds.dir
+/home/veda/PoP/PoP/build/lib/cds/CMakeFiles/edit_cache.dir
+/home/veda/PoP/PoP/build/lib/cds/CMakeFiles/rebuild_cache.dir
 /home/veda/PoP/PoP/build/lib/segment/CMakeFiles/segment.dir
 /home/veda/PoP/PoP/build/lib/segment/CMakeFiles/edit_cache.dir
 /home/veda/PoP/PoP/build/lib/segment/CMakeFiles/rebuild_cache.dir

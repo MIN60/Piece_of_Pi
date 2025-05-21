@@ -124,6 +124,7 @@ server/pop_server: server/CMakeFiles/pop_server.dir/main.c.o
 server/pop_server: server/CMakeFiles/pop_server.dir/command.c.o
 server/pop_server: server/CMakeFiles/pop_server.dir/daemon.c.o
 server/pop_server: server/CMakeFiles/pop_server.dir/build.make
+server/pop_server: lib/cds/libcds.so
 server/pop_server: lib/led/libled.so
 server/pop_server: lib/buzzer/libbuzzer.so
 server/pop_server: server/CMakeFiles/pop_server.dir/link.txt

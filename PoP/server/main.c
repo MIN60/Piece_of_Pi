@@ -116,6 +116,48 @@ void buzzer_menu() {
 }
 
 
+void cds_menu() {
+    int choice;
+
+    while (1) {
+        printf("\n[CDS 제어 메뉴]\n");
+        printf("0. 돌아가기\n");
+        printf("1. 조도값 확인\n");
+        printf("2. 밝기값 LED 제어\n");
+        printf("선택: ");
+        scanf("%d", &choice);
+
+        if (choice == 0) break;
+
+        switch (choice) {
+            case 1:
+                printf("조도값 확인\n");
+                break;
+            case 2:
+                printf("밝기 기준 LED 제어\n");
+                break;
+            default:
+                printf("잘못된 입력\n");
+                continue;
+        }
+
+        CommandArgs* cmd = malloc(sizeof(CommandArgs));
+        cmd->category = 3; 
+        cmd->action = choice;
+        cmd->value[0] = '\0';
+
+        pthread_t tid;
+        if (pthread_create(&tid, NULL, command_thread, (void*)cmd) != 0) {
+            perror("쓰레드 생성 실패");
+            free(cmd);
+        } else {
+            pthread_join(tid, NULL);
+        }
+    }
+}
+
+
+
 int main() {
     int choice;
 
@@ -138,6 +180,9 @@ int main() {
                 break;
             case 2:
                 buzzer_menu();
+                break;
+            case 3:
+                cds_menu();
                 break;
             default:
                 printf("다시 선택하세욤\n");
