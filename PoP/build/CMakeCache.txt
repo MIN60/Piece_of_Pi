@@ -205,6 +205,9 @@ buzzer_LIB_DEPENDS:STATIC=general;wiringPi;general;pthread;
 cds_LIB_DEPENDS:STATIC=general;wiringPi;general;dl;general;pthread;
 
 //Dependencies for the target
+game_LIB_DEPENDS:STATIC=general;buzzer;general;segment;
+
+//Dependencies for the target
 led_LIB_DEPENDS:STATIC=general;wiringPi;general;wiringPiDev;general;crypt;general;pthread;general;dl;
 
 //Dependencies for the target
@@ -297,7 +300,7 @@ CMAKE_MODULE_LINKER_FLAGS_RELWITHDEBINFO-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_NM
 CMAKE_NM-ADVANCED:INTERNAL=1
 //number of local generators
-CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=7
+CMAKE_NUMBER_OF_MAKEFILES:INTERNAL=8
 //ADVANCED property for variable: CMAKE_OBJCOPY
 CMAKE_OBJCOPY-ADVANCED:INTERNAL=1
 //ADVANCED property for variable: CMAKE_OBJDUMP

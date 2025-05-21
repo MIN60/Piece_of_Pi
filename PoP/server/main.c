@@ -196,6 +196,54 @@ void segment_menu() {
     }
 }
 
+
+
+void game_menu() {
+    int choice;
+    char answer[16];
+
+    while (1) {
+        printf("\n[GUESS Pi 게임 메뉴]\n");
+        printf("0. 돌아가기\n");
+        printf("1. 게임 시작\n");
+        printf("2. 정답 입력 (예: 314)\n");
+        printf("선택: ");
+        fflush(stdout);
+        scanf("%d", &choice);
+
+        if (choice == 0) break;
+
+        CommandArgs* cmd = malloc(sizeof(CommandArgs));
+        cmd->category = 5;
+        cmd->action = choice;
+        cmd->value[0] = '\0';
+
+        switch (choice) {
+            case 1:
+                printf("게임을 시작합니다!\n");
+                break;
+            case 2:
+                printf("정답을 입력하세요 (예: 314): ");
+                scanf("%s", cmd->value);
+                break;
+            default:
+                printf("잘못된 입력입니다.\n");
+                free(cmd);
+                continue;
+        }
+
+        pthread_t tid;
+        if (pthread_create(&tid, NULL, command_thread, (void*)cmd) != 0) {
+            perror("쓰레드 생성 실패");
+            free(cmd);
+        } else {
+            pthread_detach(tid);
+        }
+    }
+}
+
+
+
 int main() {
     setvbuf(stdout, NULL, _IONBF, 0);
     int choice;
@@ -206,6 +254,7 @@ int main() {
         printf("2. 부저 제어\n");
         printf("3. 조도센서 확인\n");
         printf("4. 7세그먼트 제어\n");
+        printf("5. GUESS Pi 게임\n");
         printf("0. 종료\n");
         printf("선택: ");
         fflush(stdout);
@@ -227,6 +276,9 @@ int main() {
             case 4:
                 segment_menu();
                 break;
+            case 5:
+                game_menu();
+                break;
             default:
                 printf("다시 선택하세욤\n");
         }
@@ -234,3 +286,6 @@ int main() {
 
     return 0;
 }
+
+
+

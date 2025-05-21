@@ -13,6 +13,7 @@ set(CMAKE_MAKEFILE_DEPENDS
   "/home/veda/PoP/PoP/common/CMakeLists.txt"
   "/home/veda/PoP/PoP/lib/buzzer/CMakeLists.txt"
   "/home/veda/PoP/PoP/lib/cds/CMakeLists.txt"
+  "/home/veda/PoP/PoP/lib/game/CMakeLists.txt"
   "/home/veda/PoP/PoP/lib/led/CMakeLists.txt"
   "/home/veda/PoP/PoP/lib/segment/CMakeLists.txt"
   "/home/veda/PoP/PoP/server/CMakeLists.txt"
@@ -49,6 +50,7 @@ set(CMAKE_MAKEFILE_PRODUCTS
   "lib/buzzer/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/cds/CMakeFiles/CMakeDirectoryInformation.cmake"
   "lib/segment/CMakeFiles/CMakeDirectoryInformation.cmake"
+  "lib/game/CMakeFiles/CMakeDirectoryInformation.cmake"
   )
 
 # Dependency information for all targets:
@@ -59,4 +61,5 @@ set(CMAKE_DEPEND_INFO_FILES
   "lib/buzzer/CMakeFiles/buzzer.dir/DependInfo.cmake"
   "lib/cds/CMakeFiles/cds.dir/DependInfo.cmake"
   "lib/segment/CMakeFiles/segment.dir/DependInfo.cmake"
+  "lib/game/CMakeFiles/game.dir/DependInfo.cmake"
   )

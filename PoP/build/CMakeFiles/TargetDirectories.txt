@@ -18,3 +18,6 @@
 /home/veda/PoP/PoP/build/lib/segment/CMakeFiles/segment.dir
 /home/veda/PoP/PoP/build/lib/segment/CMakeFiles/edit_cache.dir
 /home/veda/PoP/PoP/build/lib/segment/CMakeFiles/rebuild_cache.dir
+/home/veda/PoP/PoP/build/lib/game/CMakeFiles/game.dir
+/home/veda/PoP/PoP/build/lib/game/CMakeFiles/edit_cache.dir
+/home/veda/PoP/PoP/build/lib/game/CMakeFiles/rebuild_cache.dir

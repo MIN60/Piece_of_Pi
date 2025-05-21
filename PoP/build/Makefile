@@ -194,6 +194,19 @@ segment/fast:
 	$(MAKE) $(MAKESILENT) -f lib/segment/CMakeFiles/segment.dir/build.make lib/segment/CMakeFiles/segment.dir/build
 .PHONY : segment/fast
 
+#=============================================================================
+# Target rules for targets named game
+
+# Build rule for target.
+game: cmake_check_build_system
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 game
+.PHONY : game
+
+# fast build rule for target.
+game/fast:
+	$(MAKE) $(MAKESILENT) -f lib/game/CMakeFiles/game.dir/build.make lib/game/CMakeFiles/game.dir/build
+.PHONY : game/fast
+
 # Help Target
 help:
 	@echo "The following are some of the valid targets for this Makefile:"
@@ -205,6 +218,7 @@ help:
 	@echo "... buzzer"
 	@echo "... cds"
 	@echo "... common"
+	@echo "... game"
 	@echo "... led"
 	@echo "... pop_server"
 	@echo "... segment"

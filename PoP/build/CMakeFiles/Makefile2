@@ -69,6 +69,7 @@ all: lib/led/all
 all: lib/buzzer/all
 all: lib/cds/all
 all: lib/segment/all
+all: lib/game/all
 .PHONY : all
 
 # The main recursive "preinstall" target.
@@ -78,6 +79,7 @@ preinstall: lib/led/preinstall
 preinstall: lib/buzzer/preinstall
 preinstall: lib/cds/preinstall
 preinstall: lib/segment/preinstall
+preinstall: lib/game/preinstall
 .PHONY : preinstall
 
 # The main recursive "clean" target.
@@ -87,6 +89,7 @@ clean: lib/led/clean
 clean: lib/buzzer/clean
 clean: lib/cds/clean
 clean: lib/segment/clean
+clean: lib/game/clean
 .PHONY : clean
 
 #=============================================================================
@@ -133,6 +136,21 @@ lib/cds/preinstall:
 # Recursive "clean" directory target.
 lib/cds/clean: lib/cds/CMakeFiles/cds.dir/clean
 .PHONY : lib/cds/clean
+
+#=============================================================================
+# Directory level rules for directory lib/game
+
+# Recursive "all" directory target.
+lib/game/all: lib/game/CMakeFiles/game.dir/all
+.PHONY : lib/game/all
+
+# Recursive "preinstall" directory target.
+lib/game/preinstall:
+.PHONY : lib/game/preinstall
+
+# Recursive "clean" directory target.
+lib/game/clean: lib/game/CMakeFiles/game.dir/clean
+.PHONY : lib/game/clean
 
 #=============================================================================
 # Directory level rules for directory lib/led
@@ -213,14 +231,15 @@ server/CMakeFiles/pop_server.dir/all: lib/led/CMakeFiles/led.dir/all
 server/CMakeFiles/pop_server.dir/all: lib/buzzer/CMakeFiles/buzzer.dir/all
 server/CMakeFiles/pop_server.dir/all: lib/cds/CMakeFiles/cds.dir/all
 server/CMakeFiles/pop_server.dir/all: lib/segment/CMakeFiles/segment.dir/all
+server/CMakeFiles/pop_server.dir/all: lib/game/CMakeFiles/game.dir/all
 	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/pop_server.dir/build.make server/CMakeFiles/pop_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/pop_server.dir/build.make server/CMakeFiles/pop_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=9,10,11,12 "Built target pop_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=11,12,13,14 "Built target pop_server"
 .PHONY : server/CMakeFiles/pop_server.dir/all
 
 # Build rule for subdir invocation for target.
 server/CMakeFiles/pop_server.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 12
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 14
 	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 server/CMakeFiles/pop_server.dir/all
 	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 0
 .PHONY : server/CMakeFiles/pop_server.dir/rule
@@ -241,7 +260,7 @@ server/CMakeFiles/pop_server.dir/clean:
 lib/led/CMakeFiles/led.dir/all:
 	$(MAKE) $(MAKESILENT) -f lib/led/CMakeFiles/led.dir/build.make lib/led/CMakeFiles/led.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/led/CMakeFiles/led.dir/build.make lib/led/CMakeFiles/led.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=7,8 "Built target led"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=9,10 "Built target led"
 .PHONY : lib/led/CMakeFiles/led.dir/all
 
 # Build rule for subdir invocation for target.
@@ -319,7 +338,7 @@ lib/cds/CMakeFiles/cds.dir/clean:
 lib/segment/CMakeFiles/segment.dir/all:
 	$(MAKE) $(MAKESILENT) -f lib/segment/CMakeFiles/segment.dir/build.make lib/segment/CMakeFiles/segment.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/segment/CMakeFiles/segment.dir/build.make lib/segment/CMakeFiles/segment.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=13,14 "Built target segment"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=15,16 "Built target segment"
 .PHONY : lib/segment/CMakeFiles/segment.dir/all
 
 # Build rule for subdir invocation for target.
@@ -337,6 +356,33 @@ segment: lib/segment/CMakeFiles/segment.dir/rule
 lib/segment/CMakeFiles/segment.dir/clean:
 	$(MAKE) $(MAKESILENT) -f lib/segment/CMakeFiles/segment.dir/build.make lib/segment/CMakeFiles/segment.dir/clean
 .PHONY : lib/segment/CMakeFiles/segment.dir/clean
+
+#=============================================================================
+# Target rules for target lib/game/CMakeFiles/game.dir
+
+# All Build rule for target.
+lib/game/CMakeFiles/game.dir/all: lib/buzzer/CMakeFiles/buzzer.dir/all
+lib/game/CMakeFiles/game.dir/all: lib/segment/CMakeFiles/segment.dir/all
+	$(MAKE) $(MAKESILENT) -f lib/game/CMakeFiles/game.dir/build.make lib/game/CMakeFiles/game.dir/depend
+	$(MAKE) $(MAKESILENT) -f lib/game/CMakeFiles/game.dir/build.make lib/game/CMakeFiles/game.dir/build
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=7,8 "Built target game"
+.PHONY : lib/game/CMakeFiles/game.dir/all
+
+# Build rule for subdir invocation for target.
+lib/game/CMakeFiles/game.dir/rule: cmake_check_build_system
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 6
+	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 lib/game/CMakeFiles/game.dir/all
+	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 0
+.PHONY : lib/game/CMakeFiles/game.dir/rule
+
+# Convenience name for target.
+game: lib/game/CMakeFiles/game.dir/rule
+.PHONY : game
+
+# clean rule for target.
+lib/game/CMakeFiles/game.dir/clean:
+	$(MAKE) $(MAKESILENT) -f lib/game/CMakeFiles/game.dir/build.make lib/game/CMakeFiles/game.dir/clean
+.PHONY : lib/game/CMakeFiles/game.dir/clean
 
 #=============================================================================
 # Special targets to cleanup operation of make.
