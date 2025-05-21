@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <title>Piece of Pi</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <div class="container">
+    <h1>Piece of Pi</h1>
+
+    <details>
+      <summary>LED 전구 <span class="arrow">▼</span></summary>
+      <div class="section">
+        <div class="row">
+          <button onclick="sendCmd('/ledon')">LED ON</button>
+          <button onclick="sendCmd('/ledoff')">LED OFF</button>
+        </div>
+        <div class="row">
+          <span class="label">LED CTRL</span>
+          <button onclick="sendCmd('/ledhigh')">HIGH</button>
+          <button onclick="sendCmd('/ledmid')">MID</button>
+          <button onclick="sendCmd('/ledlow')">LOW</button>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>BUZZER 음악 <span class="arrow">▼</span></summary>
+      <div class="section">
+        <div class="row">
+          <button onclick="sendCmd('/buzzeron')">BUZZER ON</button>
+          <button onclick="sendCmd('/buzzeroff')">BUZZER OFF</button>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>CDS 조도 <span class="arrow">▼</span></summary>
+      <div class="section">
+        <div class="row">
+          <button onclick="sendCmd('/cdsvalue')">Check CDS Value</button>
+          <span class="label">128</span>
+        </div>
+        <div class="row">
+          <button onclick="sendCmd('/cds_with_led')">Light Detection - with LED</button>
+          <span class="label">DARK LED ON</span>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>SEGMENT 숫자 <span class="arrow">▼</span></summary>
+      <div class="section">
+        <p>카운트 다운을 시작할 숫자를 입력하세요(0-9)</p>
+        <div class="row">
+          <input type="number" id="segNum" min="0" max="9" value="9" />
+          <button onclick="startSegment()">START</button>
+        </div>
+      </div>
+    </details>
+
+    <details>
+      <summary>GUESS Pi 게임 <span class="arrow">▼</span></summary>
+      <div class="section">
+        <p>
+          "GUESS Pi"는 숫자와 음을 활용한 기억력 게임입니다.<br />
+          게임이 시작되면, 세그먼트에 표시되는 숫자와 함께 1~5번에 해당하는 음이 차례로 5개 재생됩니다.<br />
+          이후 주의음을 울린 뒤, 문제로 제시된 3개의 음이 다시 들려옵니다.<br />
+          잘 듣고 어떤 숫자인지 순서대로 입력하세요. (예: 532)<br />
+          정답을 맞히면 멜로디가, 틀리면 오류음이 재생됩니다.
+        </p>
+        <div class="row">
+          <button onclick="sendCmd('/pi_game_start')">START</button>
+        </div>
+        <div class="row">
+          <input type="text" id="piAnswer" placeholder="예: 314" />
+          <button onclick="submitPiAnswer()">SUBMIT</button>
+        </div>
+      </div>
+    </details>
+  </div>
+
+  <script>
+    function sendCmd(path) {
+      fetch(path)
+        .then(res => {
+          console.log(`${path} 전송 완료`);
+        })
+        .catch(err => {
+          console.error(`${path} 전송 실패`);
+        });
+    }
+
+    function startSegment() {
+      const num = document.getElementById("segNum").value;
+      if (num >= 0 && num <= 9) {
+        sendCmd(`/segment?num=${num}`);
+      } else {
+        alert("0~9 사이 숫자를 입력하세요.");
+      }
+    }
+
+    function submitPiAnswer() {
+      const ans = document.getElementById("piAnswer").value;
+      sendCmd(`/pi_game_check?ans=${ans}`);
+    }
+
+    document.querySelectorAll("details").forEach(detail => {
+      const arrow = detail.querySelector(".arrow");
+      detail.addEventListener("toggle", () => {
+        arrow.textContent = detail.open ? "▲" : "▼";
+      });
+    });
+  </script>
+</body>
+</html>

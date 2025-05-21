@@ -22,7 +22,7 @@ void led_menu() {
     int choice;
     char level[16];
 
-    while (1) {
+    while (1) {     
         printf("\n[LED 제어 메뉴]\n");
         printf("0. 돌아가기\n");
         printf("1. 켜기\n");
