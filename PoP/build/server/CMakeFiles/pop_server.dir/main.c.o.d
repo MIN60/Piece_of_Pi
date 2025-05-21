@@ -26,41 +26,49 @@ server/CMakeFiles/pop_server.dir/main.c.o: \
  /usr/aarch64-linux-gnu/include/bits/stdio_lim.h \
  /usr/aarch64-linux-gnu/include/bits/floatn.h \
  /usr/aarch64-linux-gnu/include/bits/floatn-common.h \
- /usr/aarch64-linux-gnu/include/dlfcn.h \
- /usr/aarch64-linux-gnu/include/bits/dlfcn.h \
- /usr/aarch64-linux-gnu/include/pthread.h \
- /usr/aarch64-linux-gnu/include/sched.h \
+ /usr/aarch64-linux-gnu/include/stdlib.h \
+ /usr/aarch64-linux-gnu/include/bits/waitflags.h \
+ /usr/aarch64-linux-gnu/include/bits/waitstatus.h \
+ /usr/aarch64-linux-gnu/include/sys/types.h \
+ /usr/aarch64-linux-gnu/include/bits/types/clock_t.h \
+ /usr/aarch64-linux-gnu/include/bits/types/clockid_t.h \
  /usr/aarch64-linux-gnu/include/bits/types/time_t.h \
- /usr/aarch64-linux-gnu/include/bits/types/struct_timespec.h \
+ /usr/aarch64-linux-gnu/include/bits/types/timer_t.h \
+ /usr/aarch64-linux-gnu/include/bits/stdint-intn.h \
+ /usr/aarch64-linux-gnu/include/endian.h \
  /usr/aarch64-linux-gnu/include/bits/endian.h \
  /usr/aarch64-linux-gnu/include/bits/endianness.h \
- /usr/aarch64-linux-gnu/include/bits/sched.h \
- /usr/aarch64-linux-gnu/include/bits/types/struct_sched_param.h \
- /usr/aarch64-linux-gnu/include/bits/cpu-set.h \
- /usr/aarch64-linux-gnu/include/time.h \
- /usr/aarch64-linux-gnu/include/bits/time.h \
- /usr/aarch64-linux-gnu/include/bits/types/clock_t.h \
- /usr/aarch64-linux-gnu/include/bits/types/struct_tm.h \
- /usr/aarch64-linux-gnu/include/bits/types/clockid_t.h \
- /usr/aarch64-linux-gnu/include/bits/types/timer_t.h \
- /usr/aarch64-linux-gnu/include/bits/types/struct_itimerspec.h \
- /usr/aarch64-linux-gnu/include/bits/types/locale_t.h \
- /usr/aarch64-linux-gnu/include/bits/types/__locale_t.h \
+ /usr/aarch64-linux-gnu/include/bits/byteswap.h \
+ /usr/aarch64-linux-gnu/include/bits/uintn-identity.h \
+ /usr/aarch64-linux-gnu/include/sys/select.h \
+ /usr/aarch64-linux-gnu/include/bits/select.h \
+ /usr/aarch64-linux-gnu/include/bits/types/sigset_t.h \
+ /usr/aarch64-linux-gnu/include/bits/types/__sigset_t.h \
+ /usr/aarch64-linux-gnu/include/bits/types/struct_timeval.h \
+ /usr/aarch64-linux-gnu/include/bits/types/struct_timespec.h \
  /usr/aarch64-linux-gnu/include/bits/pthreadtypes.h \
  /usr/aarch64-linux-gnu/include/bits/thread-shared-types.h \
  /usr/aarch64-linux-gnu/include/bits/pthreadtypes-arch.h \
  /usr/aarch64-linux-gnu/include/bits/atomic_wide_counter.h \
  /usr/aarch64-linux-gnu/include/bits/struct_mutex.h \
  /usr/aarch64-linux-gnu/include/bits/struct_rwlock.h \
+ /usr/aarch64-linux-gnu/include/alloca.h \
+ /usr/aarch64-linux-gnu/include/bits/stdlib-float.h \
+ /usr/aarch64-linux-gnu/include/string.h \
+ /usr/aarch64-linux-gnu/include/bits/types/locale_t.h \
+ /usr/aarch64-linux-gnu/include/bits/types/__locale_t.h \
+ /usr/aarch64-linux-gnu/include/strings.h \
+ /usr/aarch64-linux-gnu/include/pthread.h \
+ /usr/aarch64-linux-gnu/include/sched.h \
+ /usr/aarch64-linux-gnu/include/bits/sched.h \
+ /usr/aarch64-linux-gnu/include/bits/types/struct_sched_param.h \
+ /usr/aarch64-linux-gnu/include/bits/cpu-set.h \
+ /usr/aarch64-linux-gnu/include/time.h \
+ /usr/aarch64-linux-gnu/include/bits/time.h \
+ /usr/aarch64-linux-gnu/include/bits/types/struct_tm.h \
+ /usr/aarch64-linux-gnu/include/bits/types/struct_itimerspec.h \
  /usr/aarch64-linux-gnu/include/bits/setjmp.h \
- /usr/aarch64-linux-gnu/include/bits/types/__sigset_t.h \
  /usr/aarch64-linux-gnu/include/bits/types/struct___jmp_buf_tag.h \
  /usr/aarch64-linux-gnu/include/bits/pthread_stack_min-dynamic.h \
  /usr/aarch64-linux-gnu/include/bits/pthread_stack_min.h \
- /usr/aarch64-linux-gnu/include/unistd.h \
- /usr/aarch64-linux-gnu/include/bits/posix_opt.h \
- /usr/aarch64-linux-gnu/include/bits/environments.h \
- /usr/aarch64-linux-gnu/include/bits/confname.h \
- /usr/aarch64-linux-gnu/include/bits/getopt_posix.h \
- /usr/aarch64-linux-gnu/include/bits/getopt_core.h \
- /usr/aarch64-linux-gnu/include/bits/unistd_ext.h
+ /home/veda/PoP/PoP/server/include/command.h

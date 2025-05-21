@@ -1,60 +1,103 @@
 #include <stdio.h>
-#include <dlfcn.h>
+#include <stdlib.h>
+#include <string.h>
 #include <pthread.h>
-#include <unistd.h>
+#include "command.h"
 
-// 공유 라이브러리, 쓰레드
-void* led_thread(void* arg) {
-    void* handle = dlopen("../lib/led/libled.so", RTLD_LAZY);
-    if (!handle) {
-        fprintf(stderr, "[LED] dlopen 실패: %s\n", dlerror());
-        return NULL;
-    }
+//쓰레드에서 menu_command 호출
+typedef struct {
+    int category;
+    int action;
+    char value[16];
+} CommandArgs;
 
-    int (*led_init)();
-    int (*led_on)();
-    int (*led_off)();
-
-    int (*led_clean)(); 
-
-    // 함수 포인터
-    led_init = dlsym(handle, "led_init");
-    led_on = dlsym(handle, "led_on");
-    led_off = dlsym(handle, "led_off");
-    led_clean = dlsym(handle, "led_clean");
-
-    //로딩
-    if (!led_init || !led_on || !led_off || !led_clean) {
-        fprintf(stderr, "[LED] dlsym 실패\n");
-        dlclose(handle);
-        return NULL;
-    }
-
-    //testt
-    led_init();
-    led_on();
-    sleep(1);
-    led_off();
-    led_clean();
-
-    dlclose(handle);
+void* command_thread(void* arg) {
+    CommandArgs* cmd = (CommandArgs*)arg;
+    fflush(stdout); 
+    menu_command(cmd->category, cmd->action, strlen(cmd->value) > 0 ? cmd->value : NULL);
+    free(cmd);
     return NULL;
 }
 
+// LED 메뉴
+void led_menu() {
+    int choice;
+    char level[16];
+
+    while (1) {
+        printf("\n[LED 제어 메뉴]\n");
+        printf("0. 돌아가기\n");
+        printf("1. 켜기\n");
+        printf("2. 끄기\n");
+        printf("3. 밝기 설정 (HIGH/MID/LOW)\n");
+        printf("선택: ");
+        scanf("%d", &choice);
+
+        if (choice == 0) break;
+
+        switch (choice) {
+            case 1:
+                printf("LED 켜기\n");
+                break;
+            case 2:
+                printf("LED 끄기\n");
+                break;
+            case 3:
+                printf("밝기 설정\n");
+                break;
+            default:
+                printf("잘못된 입력\n");
+                continue;
+        }
+
+        // 명령 구조체 생성
+        CommandArgs* cmd = malloc(sizeof(CommandArgs));
+        cmd->category = 1;
+        cmd->action = choice;
+        cmd->value[0] = '\0';
+
+        if (choice == 3) {
+            printf("밝기 입력 (HIGH/MID/LOW): ");
+            scanf("%s", cmd->value);
+        }
+
+        // 스레드 실행
+        pthread_t tid;
+        if (pthread_create(&tid, NULL, command_thread, (void*)cmd) != 0) {
+            perror("쓰레드 생성 실패");
+            free(cmd);
+        } else {
+            pthread_join(tid, NULL);  // join으로 안정화
+        }
+    }
+}
+
+
+
 int main() {
-    pthread_t tid;
+    int choice;
 
-    printf("LED 테스트\n");
+    while (1) {
+        printf("\n===== Piece of Pi =====\n");
+        printf("1. LED 제어\n");
+        printf("2. 부저 제어\n");
+        printf("3. 조도센서 확인\n");
+        printf("4. 7세그먼트 제어\n");
+        printf("0. 종료\n");
+        printf("선택: ");
+        scanf("%d", &choice);
 
-    //쓰레드 생성
-    if (pthread_create(&tid, NULL, led_thread, NULL) != 0) {
-        perror("쓰레드 생성 실패");
-        return 1;
+        switch (choice) {
+            case 1:
+                led_menu();
+                break;
+            case 0:
+                printf("프로그램을 종료합니다.\n");
+                return 0;
+            default:
+                printf("다시 선택하세욤\n");
+        }
     }
 
-    // 쓰레드 완료 대기
-    pthread_join(tid, NULL);
-
-    printf("PoP 서버 종료\n");
     return 0;
 }
