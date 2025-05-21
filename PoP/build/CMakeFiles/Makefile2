@@ -64,7 +64,6 @@ CMAKE_BINARY_DIR = /home/veda/PoP/PoP/build
 
 # The main recursive "all" target.
 all: common/all
-all: client/all
 all: server/all
 all: lib/led/all
 all: lib/buzzer/all
@@ -74,7 +73,6 @@ all: lib/segment/all
 
 # The main recursive "preinstall" target.
 preinstall: common/preinstall
-preinstall: client/preinstall
 preinstall: server/preinstall
 preinstall: lib/led/preinstall
 preinstall: lib/buzzer/preinstall
@@ -84,28 +82,12 @@ preinstall: lib/segment/preinstall
 
 # The main recursive "clean" target.
 clean: common/clean
-clean: client/clean
 clean: server/clean
 clean: lib/led/clean
 clean: lib/buzzer/clean
 clean: lib/sensor/clean
 clean: lib/segment/clean
 .PHONY : clean
-
-#=============================================================================
-# Directory level rules for directory client
-
-# Recursive "all" directory target.
-client/all: client/CMakeFiles/pop_client.dir/all
-.PHONY : client/all
-
-# Recursive "preinstall" directory target.
-client/preinstall:
-.PHONY : client/preinstall
-
-# Recursive "clean" directory target.
-client/clean: client/CMakeFiles/pop_client.dir/clean
-.PHONY : client/clean
 
 #=============================================================================
 # Directory level rules for directory common
@@ -224,39 +206,13 @@ common/CMakeFiles/common.dir/clean:
 .PHONY : common/CMakeFiles/common.dir/clean
 
 #=============================================================================
-# Target rules for target client/CMakeFiles/pop_client.dir
-
-# All Build rule for target.
-client/CMakeFiles/pop_client.dir/all:
-	$(MAKE) $(MAKESILENT) -f client/CMakeFiles/pop_client.dir/build.make client/CMakeFiles/pop_client.dir/depend
-	$(MAKE) $(MAKESILENT) -f client/CMakeFiles/pop_client.dir/build.make client/CMakeFiles/pop_client.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=7,8 "Built target pop_client"
-.PHONY : client/CMakeFiles/pop_client.dir/all
-
-# Build rule for subdir invocation for target.
-client/CMakeFiles/pop_client.dir/rule: cmake_check_build_system
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 2
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 client/CMakeFiles/pop_client.dir/all
-	$(CMAKE_COMMAND) -E cmake_progress_start /home/veda/PoP/PoP/build/CMakeFiles 0
-.PHONY : client/CMakeFiles/pop_client.dir/rule
-
-# Convenience name for target.
-pop_client: client/CMakeFiles/pop_client.dir/rule
-.PHONY : pop_client
-
-# clean rule for target.
-client/CMakeFiles/pop_client.dir/clean:
-	$(MAKE) $(MAKESILENT) -f client/CMakeFiles/pop_client.dir/build.make client/CMakeFiles/pop_client.dir/clean
-.PHONY : client/CMakeFiles/pop_client.dir/clean
-
-#=============================================================================
 # Target rules for target server/CMakeFiles/pop_server.dir
 
 # All Build rule for target.
 server/CMakeFiles/pop_server.dir/all:
 	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/pop_server.dir/build.make server/CMakeFiles/pop_server.dir/depend
 	$(MAKE) $(MAKESILENT) -f server/CMakeFiles/pop_server.dir/build.make server/CMakeFiles/pop_server.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=9,10,11,12 "Built target pop_server"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=7,8,9,10 "Built target pop_server"
 .PHONY : server/CMakeFiles/pop_server.dir/all
 
 # Build rule for subdir invocation for target.
@@ -334,7 +290,7 @@ lib/buzzer/CMakeFiles/buzzer.dir/clean:
 lib/sensor/CMakeFiles/sensor.dir/all:
 	$(MAKE) $(MAKESILENT) -f lib/sensor/CMakeFiles/sensor.dir/build.make lib/sensor/CMakeFiles/sensor.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/sensor/CMakeFiles/sensor.dir/build.make lib/sensor/CMakeFiles/sensor.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=15,16 "Built target sensor"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=13,14 "Built target sensor"
 .PHONY : lib/sensor/CMakeFiles/sensor.dir/all
 
 # Build rule for subdir invocation for target.
@@ -360,7 +316,7 @@ lib/sensor/CMakeFiles/sensor.dir/clean:
 lib/segment/CMakeFiles/segment.dir/all:
 	$(MAKE) $(MAKESILENT) -f lib/segment/CMakeFiles/segment.dir/build.make lib/segment/CMakeFiles/segment.dir/depend
 	$(MAKE) $(MAKESILENT) -f lib/segment/CMakeFiles/segment.dir/build.make lib/segment/CMakeFiles/segment.dir/build
-	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=13,14 "Built target segment"
+	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=11,12 "Built target segment"
 .PHONY : lib/segment/CMakeFiles/segment.dir/all
 
 # Build rule for subdir invocation for target.

@@ -73,15 +73,15 @@ lib/sensor/CMakeFiles/sensor.dir/sensor.c.o: lib/sensor/CMakeFiles/sensor.dir/fl
 lib/sensor/CMakeFiles/sensor.dir/sensor.c.o: /home/veda/PoP/PoP/lib/sensor/sensor.c
 lib/sensor/CMakeFiles/sensor.dir/sensor.c.o: lib/sensor/CMakeFiles/sensor.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object lib/sensor/CMakeFiles/sensor.dir/sensor.c.o"
-	cd /home/veda/PoP/PoP/build/lib/sensor && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/sensor/CMakeFiles/sensor.dir/sensor.c.o -MF CMakeFiles/sensor.dir/sensor.c.o.d -o CMakeFiles/sensor.dir/sensor.c.o -c /home/veda/PoP/PoP/lib/sensor/sensor.c
+	cd /home/veda/PoP/PoP/build/lib/sensor && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/sensor/CMakeFiles/sensor.dir/sensor.c.o -MF CMakeFiles/sensor.dir/sensor.c.o.d -o CMakeFiles/sensor.dir/sensor.c.o -c /home/veda/PoP/PoP/lib/sensor/sensor.c
 
 lib/sensor/CMakeFiles/sensor.dir/sensor.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/sensor.dir/sensor.c.i"
-	cd /home/veda/PoP/PoP/build/lib/sensor && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/lib/sensor/sensor.c > CMakeFiles/sensor.dir/sensor.c.i
+	cd /home/veda/PoP/PoP/build/lib/sensor && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/lib/sensor/sensor.c > CMakeFiles/sensor.dir/sensor.c.i
 
 lib/sensor/CMakeFiles/sensor.dir/sensor.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/sensor.dir/sensor.c.s"
-	cd /home/veda/PoP/PoP/build/lib/sensor && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/lib/sensor/sensor.c -o CMakeFiles/sensor.dir/sensor.c.s
+	cd /home/veda/PoP/PoP/build/lib/sensor && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/lib/sensor/sensor.c -o CMakeFiles/sensor.dir/sensor.c.s
 
 # Object files for target sensor
 sensor_OBJECTS = \

@@ -73,15 +73,15 @@ lib/led/CMakeFiles/led.dir/led.c.o: lib/led/CMakeFiles/led.dir/flags.make
 lib/led/CMakeFiles/led.dir/led.c.o: /home/veda/PoP/PoP/lib/led/led.c
 lib/led/CMakeFiles/led.dir/led.c.o: lib/led/CMakeFiles/led.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object lib/led/CMakeFiles/led.dir/led.c.o"
-	cd /home/veda/PoP/PoP/build/lib/led && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/led/CMakeFiles/led.dir/led.c.o -MF CMakeFiles/led.dir/led.c.o.d -o CMakeFiles/led.dir/led.c.o -c /home/veda/PoP/PoP/lib/led/led.c
+	cd /home/veda/PoP/PoP/build/lib/led && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/led/CMakeFiles/led.dir/led.c.o -MF CMakeFiles/led.dir/led.c.o.d -o CMakeFiles/led.dir/led.c.o -c /home/veda/PoP/PoP/lib/led/led.c
 
 lib/led/CMakeFiles/led.dir/led.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/led.dir/led.c.i"
-	cd /home/veda/PoP/PoP/build/lib/led && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/lib/led/led.c > CMakeFiles/led.dir/led.c.i
+	cd /home/veda/PoP/PoP/build/lib/led && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/lib/led/led.c > CMakeFiles/led.dir/led.c.i
 
 lib/led/CMakeFiles/led.dir/led.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/led.dir/led.c.s"
-	cd /home/veda/PoP/PoP/build/lib/led && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/lib/led/led.c -o CMakeFiles/led.dir/led.c.s
+	cd /home/veda/PoP/PoP/build/lib/led && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/lib/led/led.c -o CMakeFiles/led.dir/led.c.s
 
 # Object files for target led
 led_OBJECTS = \

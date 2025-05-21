@@ -130,19 +130,6 @@ common/fast:
 .PHONY : common/fast
 
 #=============================================================================
-# Target rules for targets named pop_client
-
-# Build rule for target.
-pop_client: cmake_check_build_system
-	$(MAKE) $(MAKESILENT) -f CMakeFiles/Makefile2 pop_client
-.PHONY : pop_client
-
-# fast build rule for target.
-pop_client/fast:
-	$(MAKE) $(MAKESILENT) -f client/CMakeFiles/pop_client.dir/build.make client/CMakeFiles/pop_client.dir/build
-.PHONY : pop_client/fast
-
-#=============================================================================
 # Target rules for targets named pop_server
 
 # Build rule for target.
@@ -218,7 +205,6 @@ help:
 	@echo "... buzzer"
 	@echo "... common"
 	@echo "... led"
-	@echo "... pop_client"
 	@echo "... pop_server"
 	@echo "... segment"
 	@echo "... sensor"

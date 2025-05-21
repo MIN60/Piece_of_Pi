@@ -34,18 +34,17 @@ endif()
 
 # Is this installation the result of a crosscompile?
 if(NOT DEFINED CMAKE_CROSSCOMPILING)
-  set(CMAKE_CROSSCOMPILING "FALSE")
+  set(CMAKE_CROSSCOMPILING "TRUE")
 endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "/usr/bin/objdump")
+  set(CMAKE_OBJDUMP "/usr/bin/aarch64-linux-gnu-objdump")
 endif()
 
 if(NOT CMAKE_INSTALL_LOCAL_ONLY)
   # Include the install script for each subdirectory.
   include("/home/veda/PoP/PoP/build/common/cmake_install.cmake")
-  include("/home/veda/PoP/PoP/build/client/cmake_install.cmake")
   include("/home/veda/PoP/PoP/build/server/cmake_install.cmake")
   include("/home/veda/PoP/PoP/build/lib/led/cmake_install.cmake")
   include("/home/veda/PoP/PoP/build/lib/buzzer/cmake_install.cmake")

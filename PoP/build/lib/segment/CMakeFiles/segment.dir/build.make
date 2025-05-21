@@ -73,15 +73,15 @@ lib/segment/CMakeFiles/segment.dir/segment.c.o: lib/segment/CMakeFiles/segment.d
 lib/segment/CMakeFiles/segment.dir/segment.c.o: /home/veda/PoP/PoP/lib/segment/segment.c
 lib/segment/CMakeFiles/segment.dir/segment.c.o: lib/segment/CMakeFiles/segment.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object lib/segment/CMakeFiles/segment.dir/segment.c.o"
-	cd /home/veda/PoP/PoP/build/lib/segment && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/segment/CMakeFiles/segment.dir/segment.c.o -MF CMakeFiles/segment.dir/segment.c.o.d -o CMakeFiles/segment.dir/segment.c.o -c /home/veda/PoP/PoP/lib/segment/segment.c
+	cd /home/veda/PoP/PoP/build/lib/segment && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/segment/CMakeFiles/segment.dir/segment.c.o -MF CMakeFiles/segment.dir/segment.c.o.d -o CMakeFiles/segment.dir/segment.c.o -c /home/veda/PoP/PoP/lib/segment/segment.c
 
 lib/segment/CMakeFiles/segment.dir/segment.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/segment.dir/segment.c.i"
-	cd /home/veda/PoP/PoP/build/lib/segment && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/lib/segment/segment.c > CMakeFiles/segment.dir/segment.c.i
+	cd /home/veda/PoP/PoP/build/lib/segment && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/lib/segment/segment.c > CMakeFiles/segment.dir/segment.c.i
 
 lib/segment/CMakeFiles/segment.dir/segment.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/segment.dir/segment.c.s"
-	cd /home/veda/PoP/PoP/build/lib/segment && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/lib/segment/segment.c -o CMakeFiles/segment.dir/segment.c.s
+	cd /home/veda/PoP/PoP/build/lib/segment && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/lib/segment/segment.c -o CMakeFiles/segment.dir/segment.c.s
 
 # Object files for target segment
 segment_OBJECTS = \

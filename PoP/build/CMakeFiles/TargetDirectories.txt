@@ -3,9 +3,6 @@
 /home/veda/PoP/PoP/build/common/CMakeFiles/common.dir
 /home/veda/PoP/PoP/build/common/CMakeFiles/edit_cache.dir
 /home/veda/PoP/PoP/build/common/CMakeFiles/rebuild_cache.dir
-/home/veda/PoP/PoP/build/client/CMakeFiles/pop_client.dir
-/home/veda/PoP/PoP/build/client/CMakeFiles/edit_cache.dir
-/home/veda/PoP/PoP/build/client/CMakeFiles/rebuild_cache.dir
 /home/veda/PoP/PoP/build/server/CMakeFiles/pop_server.dir
 /home/veda/PoP/PoP/build/server/CMakeFiles/edit_cache.dir
 /home/veda/PoP/PoP/build/server/CMakeFiles/rebuild_cache.dir

@@ -1,1 +1,1 @@
-/usr/bin/cc CMakeFiles/pop_server.dir/main.c.o CMakeFiles/pop_server.dir/command.c.o CMakeFiles/pop_server.dir/daemon.c.o -o pop_server  -lssl -lcrypto -ldl -lpthread 
+/usr/bin/aarch64-linux-gnu-gcc -march=armv8-a CMakeFiles/pop_server.dir/main.c.o CMakeFiles/pop_server.dir/command.c.o CMakeFiles/pop_server.dir/daemon.c.o -o pop_server  -ldl -lpthread 

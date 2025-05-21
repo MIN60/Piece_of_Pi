@@ -73,15 +73,15 @@ lib/buzzer/CMakeFiles/buzzer.dir/buzzer.c.o: lib/buzzer/CMakeFiles/buzzer.dir/fl
 lib/buzzer/CMakeFiles/buzzer.dir/buzzer.c.o: /home/veda/PoP/PoP/lib/buzzer/buzzer.c
 lib/buzzer/CMakeFiles/buzzer.dir/buzzer.c.o: lib/buzzer/CMakeFiles/buzzer.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object lib/buzzer/CMakeFiles/buzzer.dir/buzzer.c.o"
-	cd /home/veda/PoP/PoP/build/lib/buzzer && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/buzzer/CMakeFiles/buzzer.dir/buzzer.c.o -MF CMakeFiles/buzzer.dir/buzzer.c.o.d -o CMakeFiles/buzzer.dir/buzzer.c.o -c /home/veda/PoP/PoP/lib/buzzer/buzzer.c
+	cd /home/veda/PoP/PoP/build/lib/buzzer && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT lib/buzzer/CMakeFiles/buzzer.dir/buzzer.c.o -MF CMakeFiles/buzzer.dir/buzzer.c.o.d -o CMakeFiles/buzzer.dir/buzzer.c.o -c /home/veda/PoP/PoP/lib/buzzer/buzzer.c
 
 lib/buzzer/CMakeFiles/buzzer.dir/buzzer.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/buzzer.dir/buzzer.c.i"
-	cd /home/veda/PoP/PoP/build/lib/buzzer && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/lib/buzzer/buzzer.c > CMakeFiles/buzzer.dir/buzzer.c.i
+	cd /home/veda/PoP/PoP/build/lib/buzzer && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/lib/buzzer/buzzer.c > CMakeFiles/buzzer.dir/buzzer.c.i
 
 lib/buzzer/CMakeFiles/buzzer.dir/buzzer.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/buzzer.dir/buzzer.c.s"
-	cd /home/veda/PoP/PoP/build/lib/buzzer && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/lib/buzzer/buzzer.c -o CMakeFiles/buzzer.dir/buzzer.c.s
+	cd /home/veda/PoP/PoP/build/lib/buzzer && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/lib/buzzer/buzzer.c -o CMakeFiles/buzzer.dir/buzzer.c.s
 
 # Object files for target buzzer
 buzzer_OBJECTS = \

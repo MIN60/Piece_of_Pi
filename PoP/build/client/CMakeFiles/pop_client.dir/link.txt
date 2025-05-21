@@ -1,1 +1,0 @@
-/usr/bin/cc CMakeFiles/pop_client.dir/client.c.o -o pop_client  -lssl -lcrypto 

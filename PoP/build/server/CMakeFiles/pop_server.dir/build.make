@@ -73,43 +73,43 @@ server/CMakeFiles/pop_server.dir/main.c.o: server/CMakeFiles/pop_server.dir/flag
 server/CMakeFiles/pop_server.dir/main.c.o: /home/veda/PoP/PoP/server/main.c
 server/CMakeFiles/pop_server.dir/main.c.o: server/CMakeFiles/pop_server.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object server/CMakeFiles/pop_server.dir/main.c.o"
-	cd /home/veda/PoP/PoP/build/server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT server/CMakeFiles/pop_server.dir/main.c.o -MF CMakeFiles/pop_server.dir/main.c.o.d -o CMakeFiles/pop_server.dir/main.c.o -c /home/veda/PoP/PoP/server/main.c
+	cd /home/veda/PoP/PoP/build/server && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT server/CMakeFiles/pop_server.dir/main.c.o -MF CMakeFiles/pop_server.dir/main.c.o.d -o CMakeFiles/pop_server.dir/main.c.o -c /home/veda/PoP/PoP/server/main.c
 
 server/CMakeFiles/pop_server.dir/main.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/pop_server.dir/main.c.i"
-	cd /home/veda/PoP/PoP/build/server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/server/main.c > CMakeFiles/pop_server.dir/main.c.i
+	cd /home/veda/PoP/PoP/build/server && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/server/main.c > CMakeFiles/pop_server.dir/main.c.i
 
 server/CMakeFiles/pop_server.dir/main.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/pop_server.dir/main.c.s"
-	cd /home/veda/PoP/PoP/build/server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/server/main.c -o CMakeFiles/pop_server.dir/main.c.s
+	cd /home/veda/PoP/PoP/build/server && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/server/main.c -o CMakeFiles/pop_server.dir/main.c.s
 
 server/CMakeFiles/pop_server.dir/command.c.o: server/CMakeFiles/pop_server.dir/flags.make
 server/CMakeFiles/pop_server.dir/command.c.o: /home/veda/PoP/PoP/server/command.c
 server/CMakeFiles/pop_server.dir/command.c.o: server/CMakeFiles/pop_server.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_2) "Building C object server/CMakeFiles/pop_server.dir/command.c.o"
-	cd /home/veda/PoP/PoP/build/server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT server/CMakeFiles/pop_server.dir/command.c.o -MF CMakeFiles/pop_server.dir/command.c.o.d -o CMakeFiles/pop_server.dir/command.c.o -c /home/veda/PoP/PoP/server/command.c
+	cd /home/veda/PoP/PoP/build/server && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT server/CMakeFiles/pop_server.dir/command.c.o -MF CMakeFiles/pop_server.dir/command.c.o.d -o CMakeFiles/pop_server.dir/command.c.o -c /home/veda/PoP/PoP/server/command.c
 
 server/CMakeFiles/pop_server.dir/command.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/pop_server.dir/command.c.i"
-	cd /home/veda/PoP/PoP/build/server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/server/command.c > CMakeFiles/pop_server.dir/command.c.i
+	cd /home/veda/PoP/PoP/build/server && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/server/command.c > CMakeFiles/pop_server.dir/command.c.i
 
 server/CMakeFiles/pop_server.dir/command.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/pop_server.dir/command.c.s"
-	cd /home/veda/PoP/PoP/build/server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/server/command.c -o CMakeFiles/pop_server.dir/command.c.s
+	cd /home/veda/PoP/PoP/build/server && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/server/command.c -o CMakeFiles/pop_server.dir/command.c.s
 
 server/CMakeFiles/pop_server.dir/daemon.c.o: server/CMakeFiles/pop_server.dir/flags.make
 server/CMakeFiles/pop_server.dir/daemon.c.o: /home/veda/PoP/PoP/server/daemon.c
 server/CMakeFiles/pop_server.dir/daemon.c.o: server/CMakeFiles/pop_server.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_3) "Building C object server/CMakeFiles/pop_server.dir/daemon.c.o"
-	cd /home/veda/PoP/PoP/build/server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT server/CMakeFiles/pop_server.dir/daemon.c.o -MF CMakeFiles/pop_server.dir/daemon.c.o.d -o CMakeFiles/pop_server.dir/daemon.c.o -c /home/veda/PoP/PoP/server/daemon.c
+	cd /home/veda/PoP/PoP/build/server && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT server/CMakeFiles/pop_server.dir/daemon.c.o -MF CMakeFiles/pop_server.dir/daemon.c.o.d -o CMakeFiles/pop_server.dir/daemon.c.o -c /home/veda/PoP/PoP/server/daemon.c
 
 server/CMakeFiles/pop_server.dir/daemon.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/pop_server.dir/daemon.c.i"
-	cd /home/veda/PoP/PoP/build/server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/server/daemon.c > CMakeFiles/pop_server.dir/daemon.c.i
+	cd /home/veda/PoP/PoP/build/server && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/server/daemon.c > CMakeFiles/pop_server.dir/daemon.c.i
 
 server/CMakeFiles/pop_server.dir/daemon.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/pop_server.dir/daemon.c.s"
-	cd /home/veda/PoP/PoP/build/server && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/server/daemon.c -o CMakeFiles/pop_server.dir/daemon.c.s
+	cd /home/veda/PoP/PoP/build/server && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/server/daemon.c -o CMakeFiles/pop_server.dir/daemon.c.s
 
 # Object files for target pop_server
 pop_server_OBJECTS = \

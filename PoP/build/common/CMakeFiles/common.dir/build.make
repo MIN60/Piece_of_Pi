@@ -73,15 +73,15 @@ common/CMakeFiles/common.dir/protocol.c.o: common/CMakeFiles/common.dir/flags.ma
 common/CMakeFiles/common.dir/protocol.c.o: /home/veda/PoP/PoP/common/protocol.c
 common/CMakeFiles/common.dir/protocol.c.o: common/CMakeFiles/common.dir/compiler_depend.ts
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green --progress-dir=/home/veda/PoP/PoP/build/CMakeFiles --progress-num=$(CMAKE_PROGRESS_1) "Building C object common/CMakeFiles/common.dir/protocol.c.o"
-	cd /home/veda/PoP/PoP/build/common && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT common/CMakeFiles/common.dir/protocol.c.o -MF CMakeFiles/common.dir/protocol.c.o.d -o CMakeFiles/common.dir/protocol.c.o -c /home/veda/PoP/PoP/common/protocol.c
+	cd /home/veda/PoP/PoP/build/common && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -MD -MT common/CMakeFiles/common.dir/protocol.c.o -MF CMakeFiles/common.dir/protocol.c.o.d -o CMakeFiles/common.dir/protocol.c.o -c /home/veda/PoP/PoP/common/protocol.c
 
 common/CMakeFiles/common.dir/protocol.c.i: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Preprocessing C source to CMakeFiles/common.dir/protocol.c.i"
-	cd /home/veda/PoP/PoP/build/common && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/common/protocol.c > CMakeFiles/common.dir/protocol.c.i
+	cd /home/veda/PoP/PoP/build/common && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -E /home/veda/PoP/PoP/common/protocol.c > CMakeFiles/common.dir/protocol.c.i
 
 common/CMakeFiles/common.dir/protocol.c.s: cmake_force
 	@$(CMAKE_COMMAND) -E cmake_echo_color "--switch=$(COLOR)" --green "Compiling C source to assembly CMakeFiles/common.dir/protocol.c.s"
-	cd /home/veda/PoP/PoP/build/common && /usr/bin/cc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/common/protocol.c -o CMakeFiles/common.dir/protocol.c.s
+	cd /home/veda/PoP/PoP/build/common && /usr/bin/aarch64-linux-gnu-gcc $(C_DEFINES) $(C_INCLUDES) $(C_FLAGS) -S /home/veda/PoP/PoP/common/protocol.c -o CMakeFiles/common.dir/protocol.c.s
 
 # Object files for target common
 common_OBJECTS = \
