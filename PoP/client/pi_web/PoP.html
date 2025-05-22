@@ -9,6 +9,7 @@
   <div class="container">
     <h1>Piece of Pi</h1>
 
+    <!-- LED -->
     <details>
       <summary>LED 전구 <span class="arrow">▼</span></summary>
       <div class="section">
@@ -18,13 +19,14 @@
         </div>
         <div class="row">
           <span class="label">LED CTRL</span>
-          <button onclick="sendCmd('/ledhigh')">HIGH</button>
-          <button onclick="sendCmd('/ledmid')">MID</button>
-          <button onclick="sendCmd('/ledlow')">LOW</button>
+          <button onclick="sendCmd('/ledctrl?value=HIGH')">HIGH</button>
+          <button onclick="sendCmd('/ledctrl?value=MID')">MID</button>
+          <button onclick="sendCmd('/ledctrl?value=LOW')">LOW</button>
         </div>
       </div>
     </details>
 
+    <!-- BUZZER -->
     <details>
       <summary>BUZZER 음악 <span class="arrow">▼</span></summary>
       <div class="section">
@@ -35,6 +37,7 @@
       </div>
     </details>
 
+    <!-- CDS -->
     <details>
       <summary>CDS 조도 <span class="arrow">▼</span></summary>
       <div class="section">
@@ -49,6 +52,7 @@
       </div>
     </details>
 
+    <!-- SEGMENT -->
     <details>
       <summary>SEGMENT 숫자 <span class="arrow">▼</span></summary>
       <div class="section">
@@ -60,6 +64,7 @@
       </div>
     </details>
 
+    <!-- GUESS PI -->
     <details>
       <summary>GUESS Pi 게임 <span class="arrow">▼</span></summary>
       <div class="section">
@@ -74,7 +79,7 @@
           <button onclick="sendCmd('/pi_game_start')">START</button>
         </div>
         <div class="row">
-          <input type="text" id="piAnswer" placeholder="예: 314" />
+          <input type="text" id="piAnswer" placeholder="예: 532" />
           <button onclick="submitPiAnswer()">SUBMIT</button>
         </div>
       </div>
@@ -84,12 +89,8 @@
   <script>
     function sendCmd(path) {
       fetch(path)
-        .then(res => {
-          console.log(`${path} 전송 완료`);
-        })
-        .catch(err => {
-          console.error(`${path} 전송 실패`);
-        });
+        .then(res => console.log(`${path} 전송 완료`))
+        .catch(err => console.error(`${path} 전송 실패`, err));
     }
 
     function startSegment() {

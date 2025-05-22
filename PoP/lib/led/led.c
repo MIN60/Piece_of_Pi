@@ -2,39 +2,60 @@
 #include <string.h>
 #include <wiringPi.h>
 #include <softPwm.h>
+#include <pthread.h>
 #include "led.h"
 
-#define LED_PIN 1  //wiringPi GPIO 18
+#define LED_PIN 1  // wiringPi 번호 (GPIO 18)
 
-// LED 초기화
+// 내부 초기화 여부 및 뮤텍스
+static int initialized = 0;
+static pthread_mutex_t led_mutex = PTHREAD_MUTEX_INITIALIZER;
+
+// 초기화 함수는 main에서 호출하되, 재호출 대비 로직도 포함
 int led_init() {
-    static int initialized = 0;
-    if (initialized) return 0;
+    pthread_mutex_lock(&led_mutex);
 
-    wiringPiSetup();
+    if (initialized) {
+        pthread_mutex_unlock(&led_mutex);
+        return 0;
+    }
+
+    if (wiringPiSetup() == -1) {
+        fprintf(stderr, "[LED INIT] wiringPi 초기화 실패\n");
+        pthread_mutex_unlock(&led_mutex);
+        return -1;
+    }
+
     pinMode(LED_PIN, OUTPUT);
-    softPwmCreate(LED_PIN, 0, 100);  // 딱 한 번만 생성
-    //printf("[LED] 초기화 완료 (핀: %d)\n", LED_PIN);
+
+    if (softPwmCreate(LED_PIN, 0, 100) != 0) {
+        fprintf(stderr, "[LED INIT] softPwmCreate 실패\n");
+        pthread_mutex_unlock(&led_mutex);
+        return -1;
+    }
 
     initialized = 1;
+    pthread_mutex_unlock(&led_mutex);
     return 0;
 }
 
-
+// ON
 int led_on() {
-    softPwmWrite(LED_PIN, 100); 
-    //printf("[LED] 켜짐\n");
+    pthread_mutex_lock(&led_mutex);
+    softPwmWrite(LED_PIN, 100);
+    pthread_mutex_unlock(&led_mutex);
     return 0;
 }
 
+// OFF
 int led_off() {
-    softPwmWrite(LED_PIN, 0); 
-    //printf("[LED] 꺼짐\n");
+    pthread_mutex_lock(&led_mutex);
+    softPwmWrite(LED_PIN, 0);
+    pthread_mutex_unlock(&led_mutex);
     return 0;
 }
 
-
-// 밝기 지정 high=100 mid=50, low=10
+// 밝기 설정
 int led_set_brightness(const char* level) {
     int value = 0;
 
@@ -46,15 +67,18 @@ int led_set_brightness(const char* level) {
         return -1;
     }
 
-    softPwmWrite(LED_PIN, value); //PWM 값 설정
-    //printf("[LED] 밝기 설정: %s (%d)\n", level, value);
+    pthread_mutex_lock(&led_mutex);
+    softPwmWrite(LED_PIN, value);
+    pthread_mutex_unlock(&led_mutex);
     return 0;
 }
 
-//led 해제
+// 정리
 int led_clean() {
-    softPwmWrite(LED_PIN, 0); // PWM 끄기
-    pinMode(LED_PIN, INPUT);  // 핀 입력모드로 초기화
-    //printf("[LED] 종료 및 핀 해제\n");
+    pthread_mutex_lock(&led_mutex);
+    softPwmWrite(LED_PIN, 0);
+    pinMode(LED_PIN, INPUT);
+    initialized = 0;
+    pthread_mutex_unlock(&led_mutex);
     return 0;
 }

@@ -22,15 +22,23 @@ const char* menu_command(int category, int action, const char* value) {
 }
 
 const char* handle_led_command(int action, const char* value) {
-    void* handle = dlopen("../lib/led/libled.so", RTLD_LAZY);
-    if (!handle) return "[LED] dlopen 실패";
+    printf("[LED DEBUG] handle_led_command() 진입 (action=%d, value=%s)\n", action, value ? value : "NULL");
 
+    void* handle = dlopen("../lib/led/libled.so", RTLD_LAZY);
+    if (!handle) {
+        printf("[LED DEBUG] dlopen 실패: %s\n", dlerror());
+        return "[LED] dlopen 실패";
+    }
+    printf("[LED DEBUG] dlopen 성공\n");
+
+    // 함수 포인터
     int (*led_init)();
     int (*led_on)();
     int (*led_off)();
     int (*led_set_brightness)(const char*);
     int (*led_clean)();
 
+    // 심볼 로드
     led_init = dlsym(handle, "led_init");
     led_on   = dlsym(handle, "led_on");
     led_off  = dlsym(handle, "led_off");
@@ -38,24 +46,41 @@ const char* handle_led_command(int action, const char* value) {
     led_clean = dlsym(handle, "led_clean");
 
     if (!led_init || !led_on || !led_off || !led_set_brightness || !led_clean) {
+        printf("[LED DEBUG] dlsym 실패: %s\n", dlerror());
         dlclose(handle);
         return "[LED] dlsym 실패";
     }
 
-    led_init();
-
-    if (action == 1) {
-        led_on();
-        return "LED ON 완료";
-    } else if (action == 2) {
-        led_off();
-        return "LED OFF 완료";
-    } else if (action == 3 && value) {
-        led_set_brightness(value);
-        return "LED 밝기 설정 완료";
-    } else {
-        return "[LED] 잘못된 명령입니다.";
+    // 초기화
+    if (led_init() != 0) {
+        printf("[LED DEBUG] led_init 실패\n");
+        dlclose(handle);
+        return "[LED] 초기화 실패";
     }
+    printf("[LED DEBUG] led_init() 호출 완료\n");
+
+    const char* result = "[LED] 잘못된 명령입니다.";
+
+    // 실행 분기
+    if (action == 1) {
+        printf("[LED DEBUG] led_on() 호출 시작\n");
+        led_on();
+        printf("[LED DEBUG] led_on() 호출 완료\n");
+        result = "LED ON 완료";
+    } else if (action == 2) {
+        printf("[LED DEBUG] led_off() 호출 시작\n");
+        led_off();
+        result = "LED OFF 완료";
+    } else if (action == 3 && value) {
+        printf("[LED DEBUG] led_set_brightness(%s) 호출 시작\n", value);
+        led_set_brightness(value);
+        result = "LED 밝기 설정 완료";
+    }
+
+    // 해제 후 반환
+    //dlclose(handle);
+    //printf("[LED DEBUG] dlclose(handle) 완료 후 반환\n");
+    return result;
 }
 
 const char* handle_buzzer_command(int action, const char* value) {

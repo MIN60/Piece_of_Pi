@@ -11,6 +11,8 @@
 #include <sys/stat.h>
 
 #include "command.h"
+#include "web_server.h"
+
 
 #define PORT 60000
 #define BACKLOG 10
@@ -80,6 +82,13 @@ int main() {
 
     //  데몬화
     //daemonize();
+
+    // 웹 서버 스레드 시작
+    pthread_t web_tid;
+    if (pthread_create(&web_tid, NULL, (void*(*)(void*))start_web_server, (void*)(intptr_t)8080) != 0) {
+        perror("[WEB] 웹 서버 스레드 생성 실패");
+        exit(1);
+    }
 
     // 소켓 생성
     server_sock = socket(AF_INET, SOCK_STREAM, 0);

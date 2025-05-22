@@ -34,15 +34,19 @@ void send_command(int category, int action, const char* value) {
     }
 }
 
+void open_web_gui(const char* server_ip) {
+    char cmd[256];
+    snprintf(cmd, sizeof(cmd), "xdg-open http://%s:8080/PoP.html", server_ip);
+    system(cmd);
+}
+
 void led_menu() {
     int choice;
     char level[16];
     while (1) {
-        printf("\n[LED 제어 메뉴]\n");
-        printf("0. 돌아가기\n1. 켜기\n2. 끄기\n3. 밝기 설정 (HIGH/MID/LOW)\n선택: ");
+        printf("\n[LED 제어 메뉴]\n0. 돌아가기\n1. 켜기\n2. 끄기\n3. 밝기 설정 (HIGH/MID/LOW)\n선택: ");
         scanf("%d", &choice);
         if (choice == 0) break;
-
         if (choice == 3) {
             printf("밝기 입력: ");
             scanf("%s", level);
@@ -136,10 +140,12 @@ int main(int argc, char* argv[]) {
         exit(1);
     }
 
+    printf("[INFO] 연결할 서버 IP: %s\n", server_ip);
+
     int choice;
     while (1) {
         printf("\n===== Piece of Pi 클라이언트 입니다~~ =====\n");
-        printf("1. LED 제어\n2. 부저 제어\n3. CDS 센서\n4. 7세그먼트\n5. GUESS Pi 게임\n0. 종료\n선택: ");
+        printf("1. LED 제어\n2. 부저 제어\n3. CDS 센서\n4. 7세그먼트\n5. GUESS Pi 게임\n6. 웹 GUI 접속\n0. 종료\n선택: ");
         scanf("%d", &choice);
         switch (choice) {
             case 0:
@@ -151,6 +157,7 @@ int main(int argc, char* argv[]) {
             case 3: cds_menu(); break;
             case 4: segment_menu(); break;
             case 5: game_menu(); break;
+            case 6: open_web_gui(server_ip); break;
             default: printf("잘못된 입력\n");
         }
     }
