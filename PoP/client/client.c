@@ -99,7 +99,14 @@ void game_menu() {
     int choice;
     char answer[16];
     while (1) {
-        printf("\n[GUESS Pi 게임 메뉴]\n0. 돌아가기\n1. 게임 시작\n2. 정답 입력\n선택: ");
+        printf("\n[GUESS Pi 게임 메뉴]\n");
+        printf("GUESS Pi는 숫자와 음을 활용한 기억력 게임입니다.\n");
+        printf("세그먼트에 표시되는 숫자와 함께 1~5번에 해당하는 음이 순서대로 재생됩니다.\n");
+        printf("주의음을 들은 뒤, 문제로 제시된 3개의 음이 다시 재생됩니다.\n");
+        printf("잘 듣고 숫자를 순서대로 입력하세요. (예: 513)\n");
+        printf("정답을 맞히면 멜로디가, 틀리면 오류음이 재생됩니다.\n\n");
+
+        printf("0. 돌아가기\n1. 게임 시작\n2. 정답 입력\n선택: ");
         scanf("%d", &choice);
         if (choice == 0) break;
 
