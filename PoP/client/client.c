@@ -11,7 +11,7 @@
 int sock;
 
 void ignore_signal(int signo) {
-    printf("\n[CLIENT] 강제 종료는 차단되어 있습니다.\n");
+    printf("\n[CLIENT] 강제 종료는 차단되어 있습니다.\n0번을 누르세요.\n>");
 }
 
 void send_command(int category, int action, const char* value) {
@@ -157,7 +157,10 @@ int main(int argc, char* argv[]) {
             case 3: cds_menu(); break;
             case 4: segment_menu(); break;
             case 5: game_menu(); break;
-            case 6: open_web_gui(server_ip); break;
+            case 6: 
+                open_web_gui(server_ip);
+                printf("곧 웹페이지가 열립니다.\n"); 
+                break;
             default: printf("잘못된 입력\n");
         }
     }

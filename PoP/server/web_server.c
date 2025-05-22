@@ -16,6 +16,8 @@ static void* handle_http_client(void* arg);
 static void send_file(FILE* fp, const char* filename);
 static void send_response(FILE* fp, const char* status, const char* content_type);
 static void send_error(FILE* fp);
+const char* menu_command(int category, int action, const char* value);
+
 
 void start_web_server(int port) {
     int server_sock = socket(AF_INET, SOCK_STREAM, 0);
