@@ -131,11 +131,16 @@ int handle_cds_command(int action, const char* value) {
     }
 
     if (action == 1) {
-        cds_get_value();      
+        int cds_val = cds_get_value();
+        char msg[64];
+        snprintf(msg, sizeof(msg), "조도값: %d", cds_val);
+        send_result(msg);  // 문자열 응답 전송
     } else if (action == 2) {
-        cds_with_led();    
+        cds_with_led();  // LED 자동 제어
+        send_result("CDS + LED 처리 완료");
     } else {
-        printf("[CDS] 잘못된 명령입니다.\n");
+        send_result("잘못된 명령입니다.");
+        return -1;
     }
 
     return 0;
