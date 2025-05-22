@@ -1,1 +1,3 @@
-build/
+PoP/build/
+PoP/build-arm64/
+PoP/build-x86/

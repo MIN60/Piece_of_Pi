@@ -1,1 +1,0 @@
-/usr/bin/aarch64-linux-gnu-gcc -march=armv8-a CMakeFiles/client.dir/client.c.o -o client 

@@ -1,1 +1,0 @@
-/usr/bin/cc -fPIC -shared -Wl,-soname,libcds.so -o libcds.so CMakeFiles/cds.dir/cds.c.o  -lwiringPi -ldl -lpthread 

@@ -1,1 +1,0 @@
-/usr/bin/aarch64-linux-gnu-gcc -fPIC -march=armv8-a -shared -Wl,-soname,libgame.so -o libgame.so CMakeFiles/game.dir/game.c.o  -Wl,-rpath,/home/veda/PoP/PoP/build-arm64/lib/buzzer:/home/veda/PoP/PoP/build-arm64/lib/segment ../buzzer/libbuzzer.so ../segment/libsegment.so -lwiringPi -ldl -lpthread 
