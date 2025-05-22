@@ -53,9 +53,11 @@ int cds_with_led() {
     if (val > THRESHOLD) {
         printf("[CDS] 어두움 → LED 켜기\n");
         led_on();
+        return 1;
     } else {
         printf("[CDS] 밝음 → LED 끄기\n");
         led_off();
+        return 0;
     }
     
 

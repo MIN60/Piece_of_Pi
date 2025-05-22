@@ -136,8 +136,15 @@ const char* handle_cds_command(int action, const char* value) {
         snprintf(msg, sizeof(msg), "조도값: %d", cds_val);
         return msg;
     } else if (action == 2) {
-        cds_with_led();
+        //cds_with_led();
+        int state = cds_with_led();  // 예: 밝음이면 0, 어두움이면 1 리턴
+        if (state == 1)
+            return "어두움 → LED ON";
+        else
+            return "밝음 → LED OFF";
+
         return "CDS + LED 처리 완료";
+        
     } else {
         return "[CDS] 잘못된 명령입니다.";
     }
@@ -173,6 +180,7 @@ const char* handle_segment_command(int action, const char* value) {
 }
 
 const char* handle_game_command(int action, const char* value) {
+
     void* handle = dlopen("../lib/game/libgame.so", RTLD_LAZY);
     if (!handle) return "[GAME] dlopen 실패";
 

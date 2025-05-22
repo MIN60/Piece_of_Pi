@@ -42,12 +42,12 @@
       <summary>CDS 조도 <span class="arrow">▼</span></summary>
       <div class="section">
         <div class="row">
-          <button onclick="sendCmd('/cdsvalue')">Check CDS Value</button>
-          <span class="label">128</span>
+          <button onclick="sendCmd('/cdsvalue', 'cdsValue')">Check CDS Value</button>
+          <span class="label" id="cdsValue">Click the button</span>
         </div>
         <div class="row">
-          <button onclick="sendCmd('/cds_with_led')">Light Detection - with LED</button>
-          <span class="label">DARK LED ON</span>
+          <button onclick="sendCmd('/cds_with_led', 'cdsDetectResult')">Light Detection - with LED</button>
+          <span class="label" id="cdsDetectResult">Click the button</span>
         </div>
       </div>
     </details>
@@ -87,10 +87,18 @@
   </div>
 
   <script>
-    function sendCmd(path) {
-      fetch(path)
-        .then(res => console.log(`${path} 전송 완료`))
-        .catch(err => console.error(`${path} 전송 실패`, err));
+    function sendCmd(path, targetId = null) {
+    fetch(path)
+      .then(res => res.text())  // 응답 텍스트 받기
+      .then(text => {
+        console.log(`${path} 전송 완료: ${text}`);
+        if (targetId) {
+          document.getElementById(targetId).textContent = text;
+        }
+      })
+      .catch(err => {
+        console.error(`${path} 전송 실패`, err);
+      });
     }
 
     function startSegment() {
