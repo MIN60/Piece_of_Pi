@@ -1,16 +1,12 @@
 #ifndef COMMAND_H
 #define COMMAND_H
 
-int menu_command(int category, int action, const char* value);
+const char* menu_command(int category, int action, const char* value);
 
-// 장치
-int handle_led_command(int action, const char* value);
-int handle_buzzer_command(int action, const char* value);
-int handle_cds_command(int action, const char* value);
+const char* handle_led_command(int action, const char* value);
+const char* handle_buzzer_command(int action, const char* value);
+const char* handle_cds_command(int action, const char* value);
+const char* handle_segment_command(int action, const char* value);
+const char* handle_game_command(int action, const char* value);
 
-int handle_segment_command(int action, const char* value);
-int handle_game_command(int action, const char* value);
-
-
-
-#endif
+#endif // COMMAND_H

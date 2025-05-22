@@ -1,44 +1,29 @@
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
 #include <dlfcn.h>
 #include "command.h"
-#include <stdlib.h>  
 
+const char* handle_led_command(int action, const char* value);
+const char* handle_buzzer_command(int action, const char* value);
+const char* handle_cds_command(int action, const char* value);
+const char* handle_segment_command(int action, const char* value);
+const char* handle_game_command(int action, const char* value);
 
-int handle_led_command(int action, const char* value);
-int handle_buzzer_command(int action, const char* value);
-int handle_cds_command(int action, const char* value);
-
-int handle_segment_command(int action, const char* value);
-int handle_game_command(int action, const char* value);
-
-int menu_command(int category, int action, const char* value) {
+const char* menu_command(int category, int action, const char* value) {
     switch (category) {
-        case 1:
-            return handle_led_command(action, value);
-        case 2:
-            return handle_buzzer_command(action, value);
-        case 3:
-            return handle_cds_command(action, value);
-        case 4:
-            return handle_segment_command(action, value);
-        case 5:
-            return handle_game_command(action, value); 
-        default:
-            printf("[SYSTEM] 잘못된 선택입니다: %d\n", category);
-            return -1;
+        case 1: return handle_led_command(action, value);
+        case 2: return handle_buzzer_command(action, value);
+        case 3: return handle_cds_command(action, value);
+        case 4: return handle_segment_command(action, value);
+        case 5: return handle_game_command(action, value);
+        default: return "[SYSTEM] 잘못된 명령입니다.";
     }
 }
 
-
-int handle_led_command(int action, const char* value) {
-    printf("[DEBUG] handle_led_command 진입: action=%d\n", action);
+const char* handle_led_command(int action, const char* value) {
     void* handle = dlopen("../lib/led/libled.so", RTLD_LAZY);
-    if (!handle) {
-        fprintf(stderr, "[LED] dlopen 실패: %s\n", dlerror());
-        return -1;
-    }
-    printf("[DEBUG] dlopen 성공\n");
+    if (!handle) return "[LED] dlopen 실패";
 
     int (*led_init)();
     int (*led_on)();
@@ -53,34 +38,29 @@ int handle_led_command(int action, const char* value) {
     led_clean = dlsym(handle, "led_clean");
 
     if (!led_init || !led_on || !led_off || !led_set_brightness || !led_clean) {
-        fprintf(stderr, "[LED] dlsym 실패\n");
         dlclose(handle);
-        return -1;
+        return "[LED] dlsym 실패";
     }
-    printf("[DEBUG] dlsym 성공, led_init 호출 시도\n");
 
     led_init();
 
     if (action == 1) {
         led_on();
+        return "LED ON 완료";
     } else if (action == 2) {
         led_off();
-    } else if (action == 3 && value != NULL) {
+        return "LED OFF 완료";
+    } else if (action == 3 && value) {
         led_set_brightness(value);
+        return "LED 밝기 설정 완료";
     } else {
-        printf("[LED] 잘못된 명령입니다.\n");
+        return "[LED] 잘못된 명령입니다.";
     }
-
-    return 0;
 }
 
-
-int handle_buzzer_command(int action, const char* value) {
+const char* handle_buzzer_command(int action, const char* value) {
     void* handle = dlopen("../lib/buzzer/libbuzzer.so", RTLD_LAZY);
-    if (!handle) {
-        fprintf(stderr, "[BUZZER] dlopen 실패: %s\n", dlerror());
-        return -1;
-    }
+    if (!handle) return "[BUZZER] dlopen 실패";
 
     int (*buzzer_init)();
     int (*buzzer_on)();
@@ -93,30 +73,26 @@ int handle_buzzer_command(int action, const char* value) {
     buzzer_clean = dlsym(handle, "buzzer_clean");
 
     if (!buzzer_init || !buzzer_on || !buzzer_off || !buzzer_clean) {
-        fprintf(stderr, "[BUZZER] dlsym 실패\n");
         dlclose(handle);
-        return -1;
+        return "[BUZZER] dlsym 실패";
     }
 
     buzzer_init();
 
     if (action == 1) {
         buzzer_on();
+        return "부저 ON 완료";
     } else if (action == 2) {
         buzzer_off();
+        return "부저 OFF 완료";
     } else {
-        printf("[BUZZER] 잘못된 명령입니다.\n");
+        return "[BUZZER] 잘못된 명령입니다.";
     }
-
-    return 0;
 }
 
-int handle_cds_command(int action, const char* value) {
+const char* handle_cds_command(int action, const char* value) {
     void* handle = dlopen("../lib/cds/libcds.so", RTLD_LAZY);
-    if (!handle) {
-        fprintf(stderr, "[CDS] dlopen 실패: %s\n", dlerror());
-        return -1;
-    }
+    if (!handle) return "[CDS] dlopen 실패";
 
     int (*cds_get_value)();
     int (*cds_with_led)();
@@ -125,34 +101,26 @@ int handle_cds_command(int action, const char* value) {
     cds_with_led  = dlsym(handle, "cds_with_led");
 
     if (!cds_get_value || !cds_with_led) {
-        fprintf(stderr, "[CDS] dlsym 실패\n");
         dlclose(handle);
-        return -1;
+        return "[CDS] dlsym 실패";
     }
 
+    static char msg[64];
     if (action == 1) {
         int cds_val = cds_get_value();
-        char msg[64];
         snprintf(msg, sizeof(msg), "조도값: %d", cds_val);
-        send_result(msg);  // 문자열 응답 전송
+        return msg;
     } else if (action == 2) {
-        cds_with_led();  // LED 자동 제어
-        send_result("CDS + LED 처리 완료");
+        cds_with_led();
+        return "CDS + LED 처리 완료";
     } else {
-        send_result("잘못된 명령입니다.");
-        return -1;
+        return "[CDS] 잘못된 명령입니다.";
     }
-
-    return 0;
 }
 
-
-int handle_segment_command(int action, const char* value) {
+const char* handle_segment_command(int action, const char* value) {
     void* handle = dlopen("../lib/segment/libsegment.so", RTLD_LAZY);
-    if (!handle) {
-        fprintf(stderr, "[SEGMENT] dlopen 실패: %s\n", dlerror());
-        return -1;
-    }
+    if (!handle) return "[SEGMENT] dlopen 실패";
 
     int (*segment_init)();
     int (*seg_countdown)(int);
@@ -161,35 +129,27 @@ int handle_segment_command(int action, const char* value) {
     seg_countdown = dlsym(handle, "seg_countdown");
 
     if (!segment_init || !seg_countdown) {
-        fprintf(stderr, "[SEGMENT] dlsym 실패\n");
         dlclose(handle);
-        return -1;
+        return "[SEGMENT] dlsym 실패";
     }
 
     segment_init();
 
-    if (action == 1 && value != NULL) {
+    if (action == 1 && value) {
         int num = atoi(value);
-        if (num < 0 || num > 9) {
-            printf("[SEGMENT] 0~9 사이 숫자만 입력\n");
-            return -1;
-        }
-        seg_countdown(num);
-    } else {
-        printf("[SEGMENT] 잘못된 명령\n");
-    }
+        if (num < 0 || num > 9)
+            return "[SEGMENT] 0~9 사이 숫자만 입력하세요.";
 
-    return 0;
+        seg_countdown(num);
+        return "카운트다운 완료";
+    } else {
+        return "[SEGMENT] 잘못된 명령입니다.";
+    }
 }
 
-
-
-int handle_game_command(int action, const char* value) {
+const char* handle_game_command(int action, const char* value) {
     void* handle = dlopen("../lib/game/libgame.so", RTLD_LAZY);
-    if (!handle) {
-        fprintf(stderr, "[GAME] dlopen 실패: %s\n", dlerror());
-        return -1;
-    }
+    if (!handle) return "[GAME] dlopen 실패";
 
     void (*pi_game_start)();
     void (*pi_game_check)(const char*);
@@ -198,19 +158,17 @@ int handle_game_command(int action, const char* value) {
     pi_game_check = dlsym(handle, "pi_game_check");
 
     if (!pi_game_start || !pi_game_check) {
-        fprintf(stderr, "[GAME] dlsym 실패\n");
         dlclose(handle);
-        return -1;
+        return "[GAME] dlsym 실패";
     }
 
     if (action == 1) {
         pi_game_start();
-    } else if (action == 2 && value != NULL) {
+        return "게임 시작!";
+    } else if (action == 2 && value) {
         pi_game_check(value);
+        return "정답 제출 완료";
     } else {
-        printf("[GAME] 잘못된 명령\n");
+        return "[GAME] 잘못된 명령입니다.";
     }
-
-    dlclose(handle);
-    return 0;
 }

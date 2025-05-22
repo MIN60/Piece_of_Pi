@@ -8,8 +8,7 @@
 #include <sys/socket.h>
 #include <netinet/in.h>
 #include <arpa/inet.h>
-#include <sys/stat.h>  
-
+#include <sys/stat.h>
 
 #include "command.h"
 
@@ -47,9 +46,10 @@ void* client_handler(void* arg) {
         int parsed = sscanf(buf, "%d %d %31s", &category, &action, value);
         const char* val_ptr = (parsed == 3) ? value : NULL;
 
-        int result = menu_command(category, action, val_ptr);
-        const char* reply = (result == 0) ? "OK\n" : "ERROR\n";
-        send(client_sock, reply, strlen(reply), 0);
+        const char* response = menu_command(category, action, val_ptr);
+        if (!response) response = "ERROR\n";
+
+        send(client_sock, response, strlen(response), 0);
     }
 
     printf("[INFO] 클라이언트 연결 종료\n");
@@ -60,11 +60,11 @@ void* client_handler(void* arg) {
 void daemonize() {
     pid_t pid = fork();
     if (pid < 0) exit(1);
-    if (pid > 0) exit(0);  // 부모 종료
+    if (pid > 0) exit(0);
 
-    setsid();              // 세션 리더
-    umask(0);              // 권한 초기화
-    chdir("/");            // 루트로 이동
+    setsid();   
+    umask(0);      
+    chdir("/");  
 
     // 표준 입출력 닫기
     close(STDIN_FILENO);
@@ -78,7 +78,7 @@ int main() {
     signal(SIGTERM, ignore_signal);
     signal(SIGQUIT, ignore_signal);
 
-    // 여기
+    //  데몬화
     //daemonize();
 
     // 소켓 생성
@@ -106,7 +106,7 @@ int main() {
         exit(1);
     }
 
-    printf("[SYSTEM] 서버 데몬이 포트 %d에서 실행 중입니다...\n", PORT);
+    printf("[SYSTEM] 서버가 포트 %d에서 실행 중입니다...\n", PORT);
 
     while (1) {
         struct sockaddr_in client_addr;

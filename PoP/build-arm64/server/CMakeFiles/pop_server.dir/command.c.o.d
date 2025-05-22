@@ -30,9 +30,6 @@ server/CMakeFiles/pop_server.dir/command.c.o: \
  /usr/aarch64-linux-gnu/include/bits/types/locale_t.h \
  /usr/aarch64-linux-gnu/include/bits/types/__locale_t.h \
  /usr/aarch64-linux-gnu/include/strings.h \
- /usr/aarch64-linux-gnu/include/dlfcn.h \
- /usr/aarch64-linux-gnu/include/bits/dlfcn.h \
- /home/veda/PoP/PoP/server/include/command.h \
  /usr/aarch64-linux-gnu/include/stdlib.h \
  /usr/aarch64-linux-gnu/include/bits/waitflags.h \
  /usr/aarch64-linux-gnu/include/bits/waitstatus.h \
@@ -60,4 +57,7 @@ server/CMakeFiles/pop_server.dir/command.c.o: \
  /usr/aarch64-linux-gnu/include/bits/struct_mutex.h \
  /usr/aarch64-linux-gnu/include/bits/struct_rwlock.h \
  /usr/aarch64-linux-gnu/include/alloca.h \
- /usr/aarch64-linux-gnu/include/bits/stdlib-float.h
+ /usr/aarch64-linux-gnu/include/bits/stdlib-float.h \
+ /usr/aarch64-linux-gnu/include/dlfcn.h \
+ /usr/aarch64-linux-gnu/include/bits/dlfcn.h \
+ /home/veda/PoP/PoP/server/include/command.h
