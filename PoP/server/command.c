@@ -8,6 +8,7 @@ int handle_buzzer_command(int action, const char* value);
 int handle_cds_command(int action, const char* value);
 
 int handle_segment_command(int action, const char* value);
+int handle_game_command(int action, const char* value);
 
 int menu_command(int category, int action, const char* value) {
     switch (category) {
@@ -19,6 +20,8 @@ int menu_command(int category, int action, const char* value) {
             return handle_cds_command(action, value);
         case 4:
             return handle_segment_command(action, value);
+        case 5:
+            return handle_game_command(action, value); 
         default:
             printf("[SYSTEM] 잘못된 선택입니다: %d\n", category);
             return -1;
@@ -166,5 +169,38 @@ int handle_segment_command(int action, const char* value) {
         printf("[SEGMENT] 잘못된 명령\n");
     }
 
+    return 0;
+}
+
+
+
+int handle_game_command(int action, const char* value) {
+    void* handle = dlopen("../lib/game/libgame.so", RTLD_LAZY);
+    if (!handle) {
+        fprintf(stderr, "[GAME] dlopen 실패: %s\n", dlerror());
+        return -1;
+    }
+
+    void (*pi_game_start)();
+    void (*pi_game_check)(const char*);
+
+    pi_game_start = dlsym(handle, "pi_game_start");
+    pi_game_check = dlsym(handle, "pi_game_check");
+
+    if (!pi_game_start || !pi_game_check) {
+        fprintf(stderr, "[GAME] dlsym 실패\n");
+        dlclose(handle);
+        return -1;
+    }
+
+    if (action == 1) {
+        pi_game_start();
+    } else if (action == 2 && value != NULL) {
+        pi_game_check(value);
+    } else {
+        printf("[GAME] 잘못된 명령\n");
+    }
+
+    dlclose(handle);
     return 0;
 }

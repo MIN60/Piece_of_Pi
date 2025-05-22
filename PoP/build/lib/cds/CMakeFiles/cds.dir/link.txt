@@ -1,1 +1,0 @@
-/usr/bin/aarch64-linux-gnu-gcc -fPIC -march=armv8-a -shared -Wl,-soname,libcds.so -o libcds.so CMakeFiles/cds.dir/cds.c.o  -lwiringPi -ldl -lpthread 
