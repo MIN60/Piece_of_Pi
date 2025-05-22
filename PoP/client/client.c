@@ -5,7 +5,6 @@
 #include <signal.h>
 #include <arpa/inet.h>
 
-#define SERVER_IP "192.168.0.76" // 서버 라즈베리파이 IP 주소로 바꿔야 함
 #define SERVER_PORT 60000
 #define BUF_SIZE 128
 
@@ -27,7 +26,6 @@ void send_command(int category, int action, const char* value) {
         return;
     }
 
-    // 응답 받기
     char resp[BUF_SIZE] = {0};
     int len = recv(sock, resp, BUF_SIZE - 1, 0);
     if (len > 0) {
@@ -39,7 +37,6 @@ void send_command(int category, int action, const char* value) {
 void led_menu() {
     int choice;
     char level[16];
-
     while (1) {
         printf("\n[LED 제어 메뉴]\n");
         printf("0. 돌아가기\n1. 켜기\n2. 끄기\n3. 밝기 설정 (HIGH/MID/LOW)\n선택: ");
@@ -59,8 +56,7 @@ void led_menu() {
 void buzzer_menu() {
     int choice;
     while (1) {
-        printf("\n[BUZZER 제어 메뉴]\n");
-        printf("0. 돌아가기\n1. 부저 ON\n2. 부저 OFF\n선택: ");
+        printf("\n[BUZZER 제어 메뉴]\n0. 돌아가기\n1. 부저 ON\n2. 부저 OFF\n선택: ");
         scanf("%d", &choice);
         if (choice == 0) break;
         send_command(2, choice, NULL);
@@ -70,8 +66,7 @@ void buzzer_menu() {
 void cds_menu() {
     int choice;
     while (1) {
-        printf("\n[CDS 제어 메뉴]\n");
-        printf("0. 돌아가기\n1. 조도값 확인\n2. 밝기값 LED 제어\n선택: ");
+        printf("\n[CDS 제어 메뉴]\n0. 돌아가기\n1. 조도값 확인\n2. 밝기값 LED 제어\n선택: ");
         scanf("%d", &choice);
         if (choice == 0) break;
         send_command(3, choice, NULL);
@@ -81,8 +76,7 @@ void cds_menu() {
 void segment_menu() {
     int num;
     while (1) {
-        printf("\n[7세그먼트 제어 메뉴]\n");
-        printf("0. 돌아가기\n1. 카운트다운 (0~9)\n선택: ");
+        printf("\n[7세그먼트 제어 메뉴]\n0. 돌아가기\n1. 카운트다운 (0~9)\n선택: ");
         scanf("%d", &num);
         if (num == 0) break;
         if (num != 1) continue;
@@ -101,8 +95,7 @@ void game_menu() {
     int choice;
     char answer[16];
     while (1) {
-        printf("\n[GUESS Pi 게임 메뉴]\n");
-        printf("0. 돌아가기\n1. 게임 시작\n2. 정답 입력\n선택: ");
+        printf("\n[GUESS Pi 게임 메뉴]\n0. 돌아가기\n1. 게임 시작\n2. 정답 입력\n선택: ");
         scanf("%d", &choice);
         if (choice == 0) break;
 
@@ -116,12 +109,17 @@ void game_menu() {
     }
 }
 
-int main() {
-    // 시그널 무시 등록
+int main(int argc, char* argv[]) {
     signal(SIGINT, ignore_signal);
     signal(SIGTERM, ignore_signal);
 
-    // TCP 연결
+    if (argc != 2) {
+        fprintf(stderr, "사용법: %s <서버 IP 주소>\n", argv[0]);
+        return 1;
+    }
+
+    const char* server_ip = argv[1];
+
     struct sockaddr_in serv_addr;
     sock = socket(AF_INET, SOCK_STREAM, 0);
     if (sock < 0) {
@@ -131,7 +129,7 @@ int main() {
 
     serv_addr.sin_family = AF_INET;
     serv_addr.sin_port = htons(SERVER_PORT);
-    inet_pton(AF_INET, SERVER_IP, &serv_addr.sin_addr);
+    inet_pton(AF_INET, server_ip, &serv_addr.sin_addr);
 
     if (connect(sock, (struct sockaddr*)&serv_addr, sizeof(serv_addr)) < 0) {
         perror("서버 연결 실패");
