@@ -40,6 +40,7 @@ server/CMakeFiles/pop_server.dir/daemon.c.o: /home/veda/PoP/PoP/server/daemon.c 
   /usr/aarch64-linux-gnu/include/stdc-predef.h
 
 server/CMakeFiles/pop_server.dir/main.c.o: /home/veda/PoP/PoP/server/main.c \
+  /home/veda/PoP/PoP/lib/segment/segment.h \
   /home/veda/PoP/PoP/server/include/command.h \
   /usr/aarch64-linux-gnu/include/alloca.h \
   /usr/aarch64-linux-gnu/include/bits/atomic_wide_counter.h \
@@ -136,9 +137,13 @@ server/CMakeFiles/pop_server.dir/main.c.o: /home/veda/PoP/PoP/server/main.c \
 
 /usr/aarch64-linux-gnu/include/bits/types/struct_itimerspec.h:
 
+/usr/aarch64-linux-gnu/include/bits/types/sigset_t.h:
+
 /usr/aarch64-linux-gnu/include/stdio.h:
 
 /usr/aarch64-linux-gnu/include/bits/types/locale_t.h:
+
+/home/veda/PoP/PoP/lib/segment/segment.h:
 
 /usr/aarch64-linux-gnu/include/stdc-predef.h:
 
@@ -151,8 +156,6 @@ server/CMakeFiles/pop_server.dir/main.c.o: /home/veda/PoP/PoP/server/main.c \
 /usr/aarch64-linux-gnu/include/features.h:
 
 /usr/aarch64-linux-gnu/include/bits/sched.h:
-
-/usr/aarch64-linux-gnu/include/bits/types/sigset_t.h:
 
 /usr/aarch64-linux-gnu/include/stdlib.h:
 

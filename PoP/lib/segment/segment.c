@@ -3,6 +3,7 @@
 #include <unistd.h>
 #include <dlfcn.h>
 #include "segment.h"
+#include <stdbool.h>
 
 // wiringPi 핀 배열 (a~g + dp)
 static const int pins[8] = {
@@ -28,19 +29,31 @@ static const int numbers[10][7] = {
     {1,1,1,1,0,1,1}  // 9
 };
 
-// 초기화
+//세그먼트 초기화 여부 플래그
+static bool segment_initialized = false;
+
+
 int segment_init() {
-    wiringPiSetup();
-    for (int i = 0; i < 8; ++i) {
-        pinMode(pins[i], OUTPUT);
-        digitalWrite(pins[i], HIGH);
+    if (!segment_initialized) {
+        if (wiringPiSetup() == -1) {
+            fprintf(stderr, "[SEGMENT] wiringPi 초기화 실패\n");
+            return -1;
+        }
+
+        for (int i = 0; i < 8; ++i) {
+            pinMode(pins[i], OUTPUT);
+            digitalWrite(pins[i], HIGH);
+        }
+
+        segment_initialized = true;
     }
-    printf("[SEGMENT] 초기화 완료\n");
+
     return 0;
 }
 
 // 숫자 표시
 void segment_display(int num) {
+    segment_init();
     if (num < 0 || num > 9) return;
 
     for (int i = 0; i < 7; ++i) {
@@ -51,10 +64,11 @@ void segment_display(int num) {
 
 // 모두 끄기
 void segment_clear() {
+    segment_init();
     for (int i = 0; i < 8; ++i) {
         digitalWrite(pins[i], HIGH);
     }
-    printf("[SEGMENT] 클리어\n");
+    //printf("[SEGMENT] 클리어\n");
 }
 
 // 숫자 표시 후 1초마다 감소 → 0이면 부저 울림
@@ -63,7 +77,7 @@ int seg_countdown(int num) {
 
     for (int i = num; i >= 0; --i) {
         segment_display(i);
-        printf("[SEGMENT] %d 표시\n", i);
+        //printf("[SEGMENT] %d 표시\n", i);
         sleep(1);
     }
 
@@ -94,4 +108,12 @@ int seg_countdown(int num) {
     }
 
     return 0;
+}
+
+
+void segment_clean() {
+    for (int i = 0; i < 8; ++i) {
+        pinMode(pins[i], INPUT);  // GPIO 핀 해제
+    }
+    segment_initialized = false;
 }

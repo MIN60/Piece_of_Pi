@@ -38,8 +38,11 @@ lib/segment/CMakeFiles/segment.dir/segment.c.o: /home/veda/PoP/PoP/lib/segment/s
   /usr/aarch64-linux-gnu/include/unistd.h \
   /usr/aarch64-linux-gnu/include/wiringPi.h \
   /usr/lib/gcc-cross/aarch64-linux-gnu/13/include/stdarg.h \
+  /usr/lib/gcc-cross/aarch64-linux-gnu/13/include/stdbool.h \
   /usr/lib/gcc-cross/aarch64-linux-gnu/13/include/stddef.h
 
+
+/usr/lib/gcc-cross/aarch64-linux-gnu/13/include/stdbool.h:
 
 /usr/lib/gcc-cross/aarch64-linux-gnu/13/include/stdarg.h:
 

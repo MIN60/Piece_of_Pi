@@ -64,5 +64,5 @@ lib/game/CMakeFiles/game.dir/game.c.o: /home/veda/PoP/PoP/lib/game/game.c \
  /usr/aarch64-linux-gnu/include/bits/getopt_posix.h \
  /usr/aarch64-linux-gnu/include/bits/getopt_core.h \
  /usr/aarch64-linux-gnu/include/bits/unistd_ext.h \
- /home/veda/PoP/PoP/lib/game/../buzzer/buzzer.h \
- /home/veda/PoP/PoP/lib/game/../segment/segment.h
+ /usr/aarch64-linux-gnu/include/dlfcn.h \
+ /usr/aarch64-linux-gnu/include/bits/dlfcn.h

@@ -36,4 +36,5 @@ lib/segment/CMakeFiles/segment.dir/segment.c.o: \
  /usr/aarch64-linux-gnu/include/bits/unistd_ext.h \
  /usr/aarch64-linux-gnu/include/dlfcn.h \
  /usr/aarch64-linux-gnu/include/bits/dlfcn.h \
- /home/veda/PoP/PoP/lib/segment/segment.h
+ /home/veda/PoP/PoP/lib/segment/segment.h \
+ /usr/lib/gcc-cross/aarch64-linux-gnu/13/include/stdbool.h

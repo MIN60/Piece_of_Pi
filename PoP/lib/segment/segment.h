@@ -6,4 +6,6 @@ void segment_display(int num);
 void segment_clear();
 int seg_countdown(int num);
 
+void segment_clean();
+
 #endif

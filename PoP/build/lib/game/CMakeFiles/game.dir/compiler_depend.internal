@@ -3,12 +3,11 @@
 
 lib/game/CMakeFiles/game.dir/game.c.o
  /home/veda/PoP/PoP/lib/game/game.c
- /home/veda/PoP/PoP/lib/buzzer/buzzer.h
- /home/veda/PoP/PoP/lib/segment/segment.h
  /usr/aarch64-linux-gnu/include/alloca.h
  /usr/aarch64-linux-gnu/include/bits/atomic_wide_counter.h
  /usr/aarch64-linux-gnu/include/bits/byteswap.h
  /usr/aarch64-linux-gnu/include/bits/confname.h
+ /usr/aarch64-linux-gnu/include/bits/dlfcn.h
  /usr/aarch64-linux-gnu/include/bits/endian.h
  /usr/aarch64-linux-gnu/include/bits/endianness.h
  /usr/aarch64-linux-gnu/include/bits/environments.h
@@ -54,6 +53,7 @@ lib/game/CMakeFiles/game.dir/game.c.o
  /usr/aarch64-linux-gnu/include/bits/waitflags.h
  /usr/aarch64-linux-gnu/include/bits/waitstatus.h
  /usr/aarch64-linux-gnu/include/bits/wordsize.h
+ /usr/aarch64-linux-gnu/include/dlfcn.h
  /usr/aarch64-linux-gnu/include/endian.h
  /usr/aarch64-linux-gnu/include/features-time64.h
  /usr/aarch64-linux-gnu/include/features.h

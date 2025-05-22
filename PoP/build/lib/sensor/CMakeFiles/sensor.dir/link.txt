@@ -1,1 +1,0 @@
-/usr/bin/aarch64-linux-gnu-gcc -fPIC -march=armv8-a -shared -Wl,-soname,libsensor.so -o libsensor.so CMakeFiles/sensor.dir/sensor.c.o 
