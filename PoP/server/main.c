@@ -3,6 +3,7 @@
 #include <string.h>
 #include <pthread.h>
 #include "command.h"
+#include "../segment/segment.h"
 
 
 typedef struct {
@@ -223,7 +224,7 @@ void game_menu() {
                 printf("게임을 시작합니다!\n");
                 break;
             case 2:
-                printf("정답을 입력하세요 (예: 314): ");
+                printf("정답을 입력하세요 (예: 512): ");
                 scanf("%s", cmd->value);
                 break;
             default:
@@ -263,6 +264,7 @@ int main() {
         switch (choice) {
             case 0:
                 printf("프로그램을 종료합니다.\n");
+                //segment_clean();
                 return 0;
             case 1:
                 led_menu();
@@ -284,6 +286,7 @@ int main() {
         }
     }
 
+    
     return 0;
 }
 

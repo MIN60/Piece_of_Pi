@@ -8,5 +8,9 @@ int handle_led_command(int action, const char* value);
 int handle_buzzer_command(int action, const char* value);
 int handle_cds_command(int action, const char* value);
 
+int handle_segment_command(int action, const char* value);
+int handle_game_command(int action, const char* value);
+
+
 
 #endif

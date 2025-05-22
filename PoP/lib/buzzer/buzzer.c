@@ -65,3 +65,16 @@ int buzzer_clean() {
     //printf("[BUZZER] 부저 종료\n");
     return 0;
 }
+
+
+// 게임용
+int buzzer_play(int freq) {
+    buzzer_init();
+    softToneWrite(BUZZER_PIN, freq);
+    return 0;
+}
+
+int buzzer_stop() {
+    softToneWrite(BUZZER_PIN, 0);
+    return 0;
+}
