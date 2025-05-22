@@ -35,7 +35,7 @@ int segment_init() {
         pinMode(pins[i], OUTPUT);
         digitalWrite(pins[i], HIGH);
     }
-    printf("[SEGMENT] 초기화 완료\n");
+    //printf("[SEGMENT] 초기화 완료\n");
     return 0;
 }
 
@@ -54,7 +54,7 @@ void segment_clear() {
     for (int i = 0; i < 8; ++i) {
         digitalWrite(pins[i], HIGH);
     }
-    printf("[SEGMENT] 클리어\n");
+    //printf("[SEGMENT] 클리어\n");
 }
 
 // 숫자 표시 후 1초마다 감소 → 0이면 부저 울림
@@ -63,7 +63,7 @@ int seg_countdown(int num) {
 
     for (int i = num; i >= 0; --i) {
         segment_display(i);
-        printf("[SEGMENT] %d 표시\n", i);
+        //printf("[SEGMENT] %d 표시\n", i);
         sleep(1);
     }
 
