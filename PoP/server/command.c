@@ -2,6 +2,8 @@
 #include <string.h>
 #include <dlfcn.h>
 #include "command.h"
+#include <stdlib.h>  
+
 
 int handle_led_command(int action, const char* value);
 int handle_buzzer_command(int action, const char* value);
@@ -30,11 +32,13 @@ int menu_command(int category, int action, const char* value) {
 
 
 int handle_led_command(int action, const char* value) {
+    printf("[DEBUG] handle_led_command 진입: action=%d\n", action);
     void* handle = dlopen("../lib/led/libled.so", RTLD_LAZY);
     if (!handle) {
         fprintf(stderr, "[LED] dlopen 실패: %s\n", dlerror());
         return -1;
     }
+    printf("[DEBUG] dlopen 성공\n");
 
     int (*led_init)();
     int (*led_on)();
@@ -53,6 +57,7 @@ int handle_led_command(int action, const char* value) {
         dlclose(handle);
         return -1;
     }
+    printf("[DEBUG] dlsym 성공, led_init 호출 시도\n");
 
     led_init();
 

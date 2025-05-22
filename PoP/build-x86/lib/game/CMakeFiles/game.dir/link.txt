@@ -1,0 +1,1 @@
+/usr/bin/cc -fPIC -shared -Wl,-soname,libgame.so -o libgame.so CMakeFiles/game.dir/game.c.o  -Wl,-rpath,/home/veda/PoP/PoP/build-x86/lib/buzzer:/home/veda/PoP/PoP/build-x86/lib/segment ../buzzer/libbuzzer.so ../segment/libsegment.so -lwiringPi -ldl -lpthread 

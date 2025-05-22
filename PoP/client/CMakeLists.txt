@@ -1,3 +1,6 @@
-add_executable(pop_client client.c)
-target_include_directories(pop_client PRIVATE ../common include)
-target_link_libraries(pop_client ssl crypto)
+cmake_minimum_required(VERSION 3.10)
+project(pop_client C)
+
+set(CMAKE_C_STANDARD 99)
+
+add_executable(client client.c)

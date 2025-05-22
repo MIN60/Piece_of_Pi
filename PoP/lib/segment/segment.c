@@ -84,7 +84,7 @@ int seg_countdown(int num) {
     segment_clear();
 
     // 부저 울리기
-    void* handle = dlopen("../lib/buzzer/libbuzzer.so", RTLD_LAZY);
+    void* handle = dlopen("../build-arm64/lib/buzzer/libbuzzer.so", RTLD_LAZY);
     if (!handle) {
         fprintf(stderr, "[SEGMENT] 부저 로드 실패: %s\n", dlerror());
         return -1;
