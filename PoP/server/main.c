@@ -59,29 +59,39 @@ void* client_handler(void* arg) {
     return NULL;
 }
 
-void daemonize() {
+void daemonize(const char* work_dir) {
     pid_t pid = fork();
     if (pid < 0) exit(1);
-    if (pid > 0) exit(0);
+    if (pid > 0) exit(0);  // 부모 프로세스 종료
 
-    setsid();   
-    umask(0);      
-    chdir("/");  
+    if (setsid() < 0) exit(1);
+    umask(0);
 
-    // 표준 입출력 닫기
+    if (chdir(work_dir) < 0) {
+        perror("[DAEMON] 작업 디렉토리 변경 실패");
+        exit(1);
+    }
+
     close(STDIN_FILENO);
     close(STDOUT_FILENO);
     close(STDERR_FILENO);
 }
 
 int main() {
+
+    char cwd[256];
+    if (getcwd(cwd, sizeof(cwd)) == NULL) {
+        perror("getcwd 실패");
+        exit(1);
+    }
+
     // 시그널 등록
     signal(SIGINT, sigint_handler);
     signal(SIGTERM, ignore_signal);
     signal(SIGQUIT, ignore_signal);
 
     //  데몬화
-    //daemonize();
+    daemonize(cwd); 
 
     // 웹 서버 스레드 시작
     pthread_t web_tid;

@@ -2,10 +2,15 @@
 #include <wiringPi.h>
 #include <wiringPiI2C.h>
 #include <dlfcn.h>
+#include <unistd.h>
+#include <string.h>
 #include "cds.h"
+#include "utils.h"
+
 
 #define PCF8591_ADDR 0x48   // 기본 I2C 주소
 #define THRESHOLD 180// 임계
+
 
 int cds_get_value() {
     int fd = wiringPiI2CSetupInterface("/dev/i2c-1", PCF8591_ADDR);
@@ -28,7 +33,7 @@ int cds_with_led() {
     int val = cds_get_value();
     if (val == -1) return -1;
 
-    void* handle = dlopen("../lib/led/libled.so", RTLD_LAZY);
+    void* handle = dlopen(get_library_path("lib/led/libled.so"), RTLD_LAZY);
     if (!handle) {
         fprintf(stderr, "[CDS] LED 로드 실패: %s\n", dlerror());
         return -1;

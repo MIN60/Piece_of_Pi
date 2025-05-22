@@ -2,6 +2,9 @@
 #include <string.h>
 #include <stdlib.h>
 #include <dlfcn.h>
+#include <unistd.h>
+#include <sys/types.h>
+#include "utils.h"
 #include "command.h"
 
 const char* handle_led_command(int action, const char* value);
@@ -9,6 +12,8 @@ const char* handle_buzzer_command(int action, const char* value);
 const char* handle_cds_command(int action, const char* value);
 const char* handle_segment_command(int action, const char* value);
 const char* handle_game_command(int action, const char* value);
+
+
 
 const char* menu_command(int category, int action, const char* value) {
     switch (category) {
@@ -24,7 +29,9 @@ const char* menu_command(int category, int action, const char* value) {
 const char* handle_led_command(int action, const char* value) {
     printf("[LED DEBUG] handle_led_command() 진입 (action=%d, value=%s)\n", action, value ? value : "NULL");
 
-    void* handle = dlopen("../lib/led/libled.so", RTLD_LAZY);
+    //void* handle = dlopen("../lib/led/libled.so", RTLD_LAZY);
+    void* handle = dlopen(get_library_path("lib/led/libled.so"), RTLD_LAZY);
+
     if (!handle) {
         printf("[LED DEBUG] dlopen 실패: %s\n", dlerror());
         return "[LED] dlopen 실패";
@@ -84,7 +91,7 @@ const char* handle_led_command(int action, const char* value) {
 }
 
 const char* handle_buzzer_command(int action, const char* value) {
-    void* handle = dlopen("../lib/buzzer/libbuzzer.so", RTLD_LAZY);
+    void* handle = dlopen(get_library_path("lib/buzzer/libbuzzer.so"), RTLD_LAZY);
     if (!handle) return "[BUZZER] dlopen 실패";
 
     int (*buzzer_init)();
@@ -116,7 +123,8 @@ const char* handle_buzzer_command(int action, const char* value) {
 }
 
 const char* handle_cds_command(int action, const char* value) {
-    void* handle = dlopen("../lib/cds/libcds.so", RTLD_LAZY);
+    
+    void* handle = dlopen(get_library_path("lib/cds/libcds.so"), RTLD_LAZY);
     if (!handle) return "[CDS] dlopen 실패";
 
     int (*cds_get_value)();
@@ -151,7 +159,7 @@ const char* handle_cds_command(int action, const char* value) {
 }
 
 const char* handle_segment_command(int action, const char* value) {
-    void* handle = dlopen("../lib/segment/libsegment.so", RTLD_LAZY);
+    void* handle = dlopen(get_library_path("lib/segment/libsegment.so"), RTLD_LAZY);
     if (!handle) return "[SEGMENT] dlopen 실패";
 
     int (*segment_init)();
@@ -181,7 +189,7 @@ const char* handle_segment_command(int action, const char* value) {
 
 const char* handle_game_command(int action, const char* value) {
 
-    void* handle = dlopen("../lib/game/libgame.so", RTLD_LAZY);
+    void* handle = dlopen(get_library_path("lib/game/libgame.so"), RTLD_LAZY);
     if (!handle) return "[GAME] dlopen 실패";
 
     void (*pi_game_start)();

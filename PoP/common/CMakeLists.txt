@@ -1,3 +1,5 @@
+add_library(common_utils STATIC
+    utils.c
+)
 
-add_library(common STATIC protocol.c)
-target_include_directories(common PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})
+target_include_directories(common_utils PUBLIC ${CMAKE_CURRENT_SOURCE_DIR})

@@ -3,13 +3,16 @@
 #include <string.h>
 #include <unistd.h>
 #include <dlfcn.h>
+#include "utils.h"
+
 
 static int correct_answer[3] = {3, 1, 4};  // 정답: 3.14!
 static int notes[6] = {0, 261, 293, 329, 349, 392};  // 1~5번 음
 
+
 // 부저 함수 로딩
 static int load_buzzer_funcs(void** handle, int (**play)(int), int (**stop)()) {
-    *handle = dlopen("../lib/buzzer/libbuzzer.so", RTLD_LAZY);
+    * handle = dlopen(get_library_path("lib/buzzer/libbuzzer.so"), RTLD_LAZY);
     if (!*handle) {
         fprintf(stderr, "[GAME] buzzer dlopen 실패: %s\n", dlerror());
         return -1;
@@ -29,7 +32,7 @@ static int load_buzzer_funcs(void** handle, int (**play)(int), int (**stop)()) {
 
 static void play_note(int num, int duration_ms) {
     // --- segment ---
-    void* seg_handle = dlopen("../lib/segment/libsegment.so", RTLD_LAZY);
+    void* seg_handle = dlopen(get_library_path("lib/segment/libsegment.so"), RTLD_LAZY);
     if (!seg_handle) {
         fprintf(stderr, "[GAME] segment dlopen 실패: %s\n", dlerror());
         return;
@@ -154,7 +157,7 @@ void pi_game_start() {
     }
 
     // --- 세그먼트 클리어 ---
-    void* seg_handle = dlopen("../lib/segment/libsegment.so", RTLD_LAZY);
+    void* seg_handle = dlopen(get_library_path("lib/segment/libsegment.so"), RTLD_LAZY);
     if (!seg_handle) {
         fprintf(stderr, "[GAME] segment dlopen 실패 (clear용): %s\n", dlerror());
         return;
@@ -196,15 +199,16 @@ void pi_game_check(const char* ans) {
 
 
     // 세그먼트 정리
-void* seg_handle = dlopen("../lib/segment/libsegment.so", RTLD_LAZY);
-if (seg_handle) {
-    void (*segment_init)() = dlsym(seg_handle, "segment_init");
-    void (*segment_clear)() = dlsym(seg_handle, "segment_clear");
-    if (segment_init && segment_clear) {
-        segment_init();
-        segment_clear();
+    void* seg_handle = dlopen(get_library_path("lib/segment/libsegment.so"), RTLD_LAZY);
+
+    if (seg_handle) {
+        void (*segment_init)() = dlsym(seg_handle, "segment_init");
+        void (*segment_clear)() = dlsym(seg_handle, "segment_clear");
+        if (segment_init && segment_clear) {
+            segment_init();
+            segment_clear();
+        }
+        dlclose(seg_handle);
     }
-    dlclose(seg_handle);
-}
 
 }

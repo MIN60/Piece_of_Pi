@@ -2,8 +2,11 @@
 #include <wiringPi.h>
 #include <unistd.h>
 #include <dlfcn.h>
+#include <string.h>
 #include "segment.h"
 #include <stdbool.h>
+#include "utils.h"
+
 
 // wiringPi 핀 배열 (a~g + dp)
 static const int pins[8] = {
@@ -31,6 +34,9 @@ static const int numbers[10][7] = {
 
 //세그먼트 초기화 여부 플래그
 static bool segment_initialized = false;
+
+
+
 
 
 int segment_init() {
@@ -84,7 +90,8 @@ int seg_countdown(int num) {
     segment_clear();
 
     // 부저 울리기
-    void* handle = dlopen("../lib/buzzer/libbuzzer.so", RTLD_LAZY);
+    void* handle = dlopen(get_library_path("lib/buzzer/libbuzzer.so"), RTLD_LAZY);
+
     if (!handle) {
         fprintf(stderr, "[SEGMENT] 부저 로드 실패: %s\n", dlerror());
         return -1;

@@ -16,8 +16,10 @@ cp "$BASE_DIR/client/pi_web/PoP.html" "$BASE_DIR/"
 cp "$BASE_DIR/client/pi_web/style.css" "$BASE_DIR/"
 echo "[INFO] PoP.html 및 style.css 복사 완료"
 
-# 서버 실행
+# 서버 실행 (데몬화, 로그 분리)
 cd "$BASE_DIR/build-arm64/server"
-echo "[INFO] 서버 실행 중..."
-./pop_server
+echo "[INFO] 서버 실행 중 (백그라운드)..."
+./pop_server > /tmp/pop_server.log 2>&1 &
 
+echo "[INFO] 서버 PID: $!"
+echo "[INFO] 로그: tail -f /tmp/pop_server.log"
