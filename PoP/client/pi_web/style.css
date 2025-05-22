@@ -46,6 +46,9 @@ body {
   
   .section {
     margin-top: 12px;
+    padding: 12px 16px;
+    background-color: white;
+    border-radius: 6px;
   }
   
   .row {
@@ -53,7 +56,26 @@ body {
     align-items: center;
     margin: 8px 0;
     flex-wrap: wrap;
+    gap: 8px; 
   }
+
+  .row button {
+    flex: 1;
+    padding: 12px;
+    font-size: 16px;
+    border: none;
+    background: #f2f2f2;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s;
+    margin: 0;
+  }
+
+
+  .row button:hover {
+    background: #ddd;
+  }
+
   
   button {
     padding: 12px 24px;
@@ -89,15 +111,15 @@ body {
   }
   
   
-  input[type="number"],
-  input[type="text"] {
-    padding: 12px;
-    font-size: 16px;
-    width: 120px;
-    border-radius: 8px;
-    border: 1px solid #aaa;
-    margin-right: 12px;
-  }
-
+.row input[type="number"],
+.row input[type="text"] {
+  flex: 3; /* 입력창은 넓게 */
+  padding: 12px;
+  font-size: 16px;
+  border-radius: 8px;
+  border: 1px solid #aaa;
+  margin-right: 8px;
+  min-width: 120px;
+}
   
   
