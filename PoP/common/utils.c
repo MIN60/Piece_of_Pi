@@ -16,7 +16,7 @@ char* get_library_path(const char* subpath) {
     }
     exe_path[len] = '\0';
 
-    // /home/veda/PoP/build-arm64/server → /home/veda/PoP/build-arm64
+    //  /home/veda/PoP/build-arm64
     char* last_slash = strrchr(exe_path, '/');
     if (last_slash) *last_slash = '\0';
     last_slash = strrchr(exe_path, '/');

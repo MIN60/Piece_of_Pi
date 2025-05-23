@@ -92,8 +92,8 @@ static void* handle_http_client(void* arg) {
         // 경로와 쿼리 분리
         char* qmark = strchr(path, '?');
         if (qmark) {
-            *qmark = '\0';                      // path 절단
-            strncpy(query, qmark + 1, 63);      // 쿼리 복사
+            *qmark = '\0';    // path 절단
+            strncpy(query, qmark + 1, 63); // 쿼리 복사
         }
 
         int cat_id = 0, act_id = 0;

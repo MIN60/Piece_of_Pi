@@ -7,11 +7,11 @@
 
 #define LED_PIN 1  // wiringPi 번호 (GPIO 18)
 
-// 내부 초기화 여부 및 뮤텍스
+// 내부 초기화 , 뮤 텍스
 static int initialized = 0;
 static pthread_mutex_t led_mutex = PTHREAD_MUTEX_INITIALIZER;
 
-// 초기화 함수는 main에서 호출하되, 재호출 대비 로직도 포함
+// 초기화
 int led_init() {
     pthread_mutex_lock(&led_mutex);
 

@@ -77,7 +77,7 @@ void segment_clear() {
     //printf("[SEGMENT] 클리어\n");
 }
 
-// 숫자 표시 후 1초마다 감소 → 0이면 부저 울림
+// 숫자 표시 후 1초마다 감소ㅡ 0이면 부저 울림
 int seg_countdown(int num) {
     segment_init();
 

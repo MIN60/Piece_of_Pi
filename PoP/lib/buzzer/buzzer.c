@@ -36,24 +36,24 @@ int buzzer_init() {
     pinMode(BUZZER_PIN, OUTPUT); 
     softToneCreate(BUZZER_PIN); 
     initialized = 1;
-    //printf("[BUZZER] 초기화 (핀: %d)\n", BUZZER_PIN);
     return 0;
 }
 
+// 부저 소리
 int buzzer_on() {
     if (isPlaying) return 0;
     isPlaying = 1;
     pthread_create(&buzzer_thread, NULL, bplay_thread, NULL);
-    //printf("[BUZZER] 재생 시작\n");
+    //pr
     return 0;
 }
 
+// 부저 끄기
 int buzzer_off() {
     if (!isPlaying) return 0;
     isPlaying = 0;
     pthread_join(buzzer_thread, NULL);  
     softToneWrite(BUZZER_PIN, 0);
-    //printf("[BUZZER] 음악 정지\n");
     return 0;
 }
 
@@ -62,7 +62,6 @@ int buzzer_off() {
 int buzzer_clean() {
     buzzer_off();
     pinMode(BUZZER_PIN, INPUT);
-    //printf("[BUZZER] 부저 종료\n");
     return 0;
 }
 

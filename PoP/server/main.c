@@ -79,7 +79,7 @@ void daemonize(const char* work_dir) {
     int fd = open("/tmp/pop_server.log", O_WRONLY | O_CREAT | O_APPEND, 0644);
     dup2(fd, STDOUT_FILENO);
     dup2(fd, STDERR_FILENO);
-    close(fd); // 더 이상 필요 없음
+    close(fd); 
 
 
 }

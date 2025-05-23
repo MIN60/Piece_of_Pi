@@ -30,8 +30,9 @@ static int load_buzzer_funcs(void** handle, int (**play)(int), int (**stop)()) {
     return 0;
 }
 
+// 5개 연 주
 static void play_note(int num, int duration_ms) {
-    // --- segment ---
+    // 세그
     void* seg_handle = dlopen(get_library_path("lib/segment/libsegment.so"), RTLD_LAZY);
     if (!seg_handle) {
         fprintf(stderr, "[GAME] segment dlopen 실패: %s\n", dlerror());
@@ -57,7 +58,6 @@ static void play_note(int num, int duration_ms) {
     segment_display(num);   
     dlclose(seg_handle);
 
-    // --- buzzer ---
     void* buz_handle;
     int (*buzzer_play)(int);
     int (*buzzer_stop)();
@@ -71,6 +71,7 @@ static void play_note(int num, int duration_ms) {
 }
 
 
+// 답 세그먼트에 표시 안하고 음악
 static void play_note_no_display(int num, int duration_ms) {
     // buzzer only
     void* buz_handle;
@@ -85,9 +86,7 @@ static void play_note_no_display(int num, int duration_ms) {
     dlclose(buz_handle);
 }
 
-
-
-
+// 중간 구분음
 static void play_warning() {
     void* handle;
     int (*play)(int);
@@ -105,6 +104,8 @@ static void play_warning() {
     dlclose(handle);
 }
 
+
+// 정답 음악
 static void play_melody() {
     void* handle;
     int (*play)(int);
@@ -123,6 +124,8 @@ static void play_melody() {
     dlclose(handle);
 }
 
+
+// 오답
 static void play_error() {
     void* handle;
     int (*play)(int);
@@ -177,7 +180,7 @@ void pi_game_start() {
 }
 
 
-
+// 게임 정답 확인
 void pi_game_check(const char* ans) {
     //printf("[GAME] 입력된 정답: %s\n", ans);
     if (strlen(ans) != 3) {

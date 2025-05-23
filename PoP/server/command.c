@@ -26,6 +26,8 @@ const char* menu_command(int category, int action, const char* value) {
     }
 }
 
+
+// ㅣed
 const char* handle_led_command(int action, const char* value) {
     printf("[LED DEBUG] handle_led_command() 진입 (action=%d, value=%s)\n", action, value ? value : "NULL");
 
@@ -90,6 +92,7 @@ const char* handle_led_command(int action, const char* value) {
     return result;
 }
 
+//부저
 const char* handle_buzzer_command(int action, const char* value) {
     void* handle = dlopen(get_library_path("lib/buzzer/libbuzzer.so"), RTLD_LAZY);
     if (!handle) return "[BUZZER] dlopen 실패";
@@ -122,6 +125,7 @@ const char* handle_buzzer_command(int action, const char* value) {
     }
 }
 
+//조도
 const char* handle_cds_command(int action, const char* value) {
     
     void* handle = dlopen(get_library_path("lib/cds/libcds.so"), RTLD_LAZY);
@@ -158,6 +162,7 @@ const char* handle_cds_command(int action, const char* value) {
     }
 }
 
+// 세그먼트
 const char* handle_segment_command(int action, const char* value) {
     void* handle = dlopen(get_library_path("lib/segment/libsegment.so"), RTLD_LAZY);
     if (!handle) return "[SEGMENT] dlopen 실패";
@@ -187,6 +192,8 @@ const char* handle_segment_command(int action, const char* value) {
     }
 }
 
+
+//게임
 const char* handle_game_command(int action, const char* value) {
 
     void* handle = dlopen(get_library_path("lib/game/libgame.so"), RTLD_LAZY);
