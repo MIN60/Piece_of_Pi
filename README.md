@@ -268,12 +268,15 @@ git관련 파일이 존재하는 PoP 폴더(.ignore 등)를 제외한 PoP 폴더
 
 ## 실행 환경
 ### 라즈베리파이4 회로구성
+
+![Image](https://github.com/user-attachments/assets/da8cbe38-01f5-43e9-8404-573f03f3ce96)
 <br/>
-![image](https://github.com/user-attachments/assets/1dfe6ec7-db6a-489b-b3e8-81b5fe89c782)<br/>
 세그먼트 연결 시 방향 주의!
-<br/><br/>
+<br/>
+
 ### 실행 명령어
 순서를 따라 실행해주세요.<br/>
+
 
 ***경로 이동***<br/>
 git에서 바로 다운 받았을 때 기준으로, PoP내부에 PoP 폴더가 하나 더 있습니다.<br/>
