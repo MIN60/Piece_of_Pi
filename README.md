@@ -242,7 +242,7 @@ cd ~/PoP
 클라이언트 메뉴에서 GUI 메뉴를 선택하면 인터넷에 주소를 입력할 필요 없이 창이 자동으로 열립니다.
 
 
-## 동작 영상
+## 동작 영상(실행과정)
 
 [![Video Label](http://img.youtube.com/vi/xZbWqxYo6DE/0.jpg)](https://youtu.be/xZbWqxYo6DE)<br/>
 ▲ 클릭 시 영상이 실행됩니다.<br/><br/>
@@ -257,6 +257,7 @@ git관련 파일이 존재하는 PoP 폴더(.ignore 등)를 제외한 PoP 폴더
 <br/><br/>
 ### 실행 명령어
 순서를 따라 실행해주세요.<br/>
+
 ***경로 이동***<br/>
 git에서 바로 다운 받았을 때 기준으로, PoP내부에 PoP 폴더가 하나 더 있습니다.<br/>
 그럴 때는
