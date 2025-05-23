@@ -92,6 +92,11 @@ PoP/
 └──  toolchain-arm64.cmake
 ```
 
+## 개발 일정
+![image](https://github.com/user-attachments/assets/f52150ef-4a10-482c-8ace-06b402027b8c)
+
+
+
 ## 세부 구현 내용
 ![image](https://github.com/user-attachments/assets/de374aa9-14ba-4b84-bd06-2b4c2abd5ede)
 
@@ -294,5 +299,12 @@ build-arm64 폴더와 build-x86 폴더가 생기게 됩니다.<br/>
 명령어로 클라이언트를 실행합니다.<br/>
 ![image](https://github.com/user-attachments/assets/fe53c94d-2f52-40a8-806a-2afc92a4bd11)<br/>
 서버 실행으로 알 수 있었던 ip 주소를 입력하면 접속이 완료됩니다.<br/>
+
+
+
+## 문제점 및 보완 사항
+라즈베리파이 회로 구성 시 선을 깔끔하게 못한 것 같아서 아쉽습니다.<br/>
+Daemon 프로세스로 동작할 때 log를 파일에 찍도록 했는데 카테고리 별로 좀 더 구분되게 출력되게 했으면 좋았을 것 같습니다.<br/>
+게임이 딱 한 가지 문제만 있는데, 더 있으면 좋을 것 같습니다.<br/>
 
 
