@@ -20,6 +20,78 @@ Piece of Pi는 TCP를 이용한 원격 장치 제어 프로그램입니다.<br/>
 5. GUESS Pi 게임
 6. 웹 GUI 접속
 
+## 프로젝트 구조
+```
+PoP/
+├── build-arm64/                   
+│   ├── client/                          
+│   ├── common/                     
+│   ├── lib/                          
+│   │   ├── [libbuzzer.so](http://libbuzzer.so/)
+│   │   ├── [libcds.so](http://libcds.so/)
+│   │   ├── [libgame.so](http://libgame.so/)
+│   │   ├── [libled.so](http://libled.so/)
+│   │   └── [libsegment.so](http://libsegment.so/)
+│   └── server/                    
+
+├── build-x86/                         
+│   ├── client/                      
+│   ├── common/
+│   ├── lib/
+│   ├── server/
+│   ├── CMakeFiles/             
+│   ├── CMakeCache.txt
+│   ├── Makefile
+│   └── cmake_install.cmake
+
+├── client/                              # 클라이언트 소스 코드
+│   ├── client.c                        
+│   └── pi_web/                          # 웹
+│       ├── PoP.html
+│       └── style.css
+
+├── common/                             
+│   ├── utils.c
+│   ├── utils.h
+│   └── CMakeLists.txt
+
+├── lib/                                 # 각 장치 기능 라이브러리
+│   ├── buzzer/
+│   │   ├── buzzer.c
+│   │   ├── buzzer.h
+│   │   └── CMakeLists.txt
+│   ├── cds/
+│   │   ├── cds.c
+│   │   ├── cds.h
+│   │   └── CMakeLists.txt
+│   ├── game/
+│   │   ├── game.c
+│   │   ├── game.h
+│   │   └── CMakeLists.txt
+│   ├── led/
+│   │   ├── led.c
+│   │   ├── led.h
+│   │   └── CMakeLists.txt
+│   └── segment/
+│       ├── segment.c
+│       ├── segment.h
+│       └── CMakeLists.txt
+
+├── server/                           
+│   ├── main.c
+│   ├── command.c
+│   ├── command.h
+│   ├── web_server.c
+│   ├── web_server.h
+│   └── CMakeLists.txt
+
+├── [build.sh](http://build.sh/)                            
+├── CMakeLists.txt                     
+├── start_server.sh                      # 서버 실행 스크립트
+├── start_client.sh                      # 클라이언트 실행 스크립트
+└──  toolchain-arm64.cmake
+```
+
 ## 세부 구현 내용
 ![image](https://github.com/user-attachments/assets/de374aa9-14ba-4b84-bd06-2b4c2abd5ede)
 
@@ -168,6 +240,7 @@ cd ~/PoP
 ## 동작 영상
 
 [![Video Label](http://img.youtube.com/vi/xZbWqxYo6DE/0.jpg)](https://youtu.be/xZbWqxYo6DE)<br/>
+▲ 클릭 시 영상이 실행됩니다.<br/><br/>
 영상은 github 폴더 전체를 다운 받은 것으로, 경로가 ~/Pop/PoP 에서 시작합니다.<br/>
 git관련 파일이 존재하는 PoP 폴더(.ignore 등)를 제외한 PoP 폴더를 가지고 있을 경우 ~/PoP에서 시작하시면 됩니다.<br/>
 
