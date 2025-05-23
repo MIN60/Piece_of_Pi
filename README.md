@@ -245,8 +245,8 @@ cd ~/PoP
 ## 동작 영상(실행과정)
 
 [![Video Label](http://img.youtube.com/vi/xZbWqxYo6DE/0.jpg)](https://youtu.be/xZbWqxYo6DE)<br/>
-▲ 클릭 시 영상이 실행됩니다.<br/><br/>
-영상은 github 폴더 전체를 다운 받은 것으로, 경로가 ~/Pop/PoP 에서 시작합니다.<br/>
+▲ 클릭 시 영상이 재생됩니다.<br/><br/>
+영상은 github 폴더 전체를 다운 받은 것으로, 경로가 ~/PoP/PoP 에서 시작합니다.<br/>
 git관련 파일이 존재하는 PoP 폴더(.ignore 등)를 제외한 PoP 폴더를 가지고 있을 경우 ~/PoP에서 시작하시면 됩니다.<br/>
 
 
