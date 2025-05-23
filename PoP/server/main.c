@@ -75,9 +75,18 @@ void daemonize(const char* work_dir) {
     close(STDIN_FILENO);
     close(STDOUT_FILENO);
     close(STDERR_FILENO);
+
+    int fd = open("/tmp/pop_server.log", O_WRONLY | O_CREAT | O_APPEND, 0644);
+    dup2(fd, STDOUT_FILENO);
+    dup2(fd, STDERR_FILENO);
+    close(fd); // 더 이상 필요 없음
+
+
 }
 
 int main() {
+
+    signal(SIGPIPE, SIG_IGN);
 
     char cwd[256];
     if (getcwd(cwd, sizeof(cwd)) == NULL) {

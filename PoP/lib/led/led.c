@@ -71,7 +71,6 @@ int led_set_brightness(const char* level) {
     softPwmWrite(LED_PIN, value);
     pthread_mutex_unlock(&led_mutex);
     return 0;
-    char* get_library_path(const char* subpath);
 }
 
 // 정리
