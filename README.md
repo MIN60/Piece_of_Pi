@@ -1,4 +1,6 @@
 # Piece of Pi
+
+## 프로젝트 개요
 Piece of Pi는 TCP를 이용한 원격 장치 제어 프로그램입니다.<br/>
 라즈베리파이4에 올린 Server와 우분투 리눅스 환경에서의 Client를 통해 LED/Buzzer/CDS/7Segment 를 조작할 수 있습니다. 
 
@@ -18,7 +20,7 @@ Piece of Pi는 TCP를 이용한 원격 장치 제어 프로그램입니다.<br/>
 5. GUESS Pi 게임
 6. 웹 GUI 접속
 
-### 세부 구현 내용
+## 세부 구현 내용
 ![image](https://github.com/user-attachments/assets/de374aa9-14ba-4b84-bd06-2b4c2abd5ede)
 
 ### 1. LED 제어
@@ -122,15 +124,40 @@ libgame.so
 
 
 ### 서버
-Daemon 형식으로 구현
+Daemon 형식으로 구현<br/>
 ![image](https://github.com/user-attachments/assets/f73b4f18-cd7b-4f81-9b1f-37578dbd6048)
 
 
-
 ## 사용자 편의 기능
+### 서버, 클라이언트 실행 간편화
+.sh 파일 작성을 통해 내부 폴더에서 간단한 명령어를 통해 프로그램을 실행할 수 있음<br/>
+![image](https://github.com/user-attachments/assets/b2beca5d-29c3-4c8d-aa06-97fc4a3572ce)<br/>
+```
+cd ~/PoP
+./start_server.sh
+```
+▲ 서버 실행<br/>
+
+![image](https://github.com/user-attachments/assets/4df5f663-0c5c-4be2-8947-74639d7c4c4c)
+```
+cd ~/PoP
+./start_client.sh
+```
+▲ 클라이언트 실행<br/>
+
+
+
+
+
+
+## 동작 영상
+
+[![Video Label](http://img.youtube.com/vi/xZbWqxYo6DE/0.jpg)](https://youtu.be/xZbWqxYo6DE)
 
 ## 실행 환경
 
 ### 라즈베리파이4 회로구성
+![image](https://github.com/user-attachments/assets/1dfe6ec7-db6a-489b-b3e8-81b5fe89c782)<br/>
+세그먼트 연결 시 방향 주의!
 
 ### 실행 명령어
