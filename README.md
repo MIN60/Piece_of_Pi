@@ -27,11 +27,11 @@ PoP/
 │   ├── client/                          
 │   ├── common/                     
 │   ├── lib/                          
-│   │   ├── [libbuzzer.so](http://libbuzzer.so/)
-│   │   ├── [libcds.so](http://libcds.so/)
-│   │   ├── [libgame.so](http://libgame.so/)
-│   │   ├── [libled.so](http://libled.so/)
-│   │   └── [libsegment.so](http://libsegment.so/)
+│   │   ├── libbuzzer.so
+│   │   ├── libcds.so
+│   │   ├── libgame.so
+│   │   ├── libled.so
+│   │   └── libsegment.so
 │   └── server/                    
 
 ├── build-x86/                         
@@ -85,7 +85,7 @@ PoP/
 │   ├── web_server.h
 │   └── CMakeLists.txt
 
-├── [build.sh](http://build.sh/)                            
+├── build.sh                            
 ├── CMakeLists.txt                     
 ├── start_server.sh                      # 서버 실행 스크립트
 ├── start_client.sh                      # 클라이언트 실행 스크립트
@@ -101,6 +101,10 @@ PoP/
 ![image](https://github.com/user-attachments/assets/de374aa9-14ba-4b84-bd06-2b4c2abd5ede)
 
 ### 1. LED 제어
+
+led를 켜고 끌 수 있습니다.<br/>
+HIGH/MID/LOW 를 입력하여 LED의 밝기를 조절할 수 있습니다.<br/>
+
 클라이언트<br/>
 ![image](https://github.com/user-attachments/assets/7fdcaacc-15da-4a5c-8cac-e2c3def32fe1)
 
@@ -120,6 +124,9 @@ libled.so
 
 
 ### 2. BUZZER 제어
+
+부저를 켜고 끌 수 있습니다.<br/>
+
 클라이언트
 ![image](https://github.com/user-attachments/assets/0621260d-336d-467b-9711-a9e0064c6058)
 
@@ -137,6 +144,11 @@ libbuzzer.so
 ![image](https://github.com/user-attachments/assets/f93258b6-73f7-4d7a-ae3c-bf02836f2297)
 
 ### 3. CDS 센서
+
+현재 조도값을 출력합니다.<br/>
+주변이 어두우면 LED를 켭니다.<br/>
+
+
 클라이언트
 ![image](https://github.com/user-attachments/assets/599a3aa3-5452-427d-91c0-3b9ec806b664)
 
@@ -154,6 +166,10 @@ libcds.so
 ![image](https://github.com/user-attachments/assets/15dfc4ee-8c04-46ee-9f44-bd028e3a54c1)
 
 ### 4. 7세그먼트
+
+0-9 번호를 입력하면 세그먼트에 카운트다운이 표시됩니다. <br/>
+0이 되면 짧게 부저가 울립니다.<br/>
+
 클라이언트
 ![image](https://github.com/user-attachments/assets/d2364abb-0916-43d9-b7a2-30c3823e95e9)
 
@@ -252,6 +268,7 @@ git관련 파일이 존재하는 PoP 폴더(.ignore 등)를 제외한 PoP 폴더
 
 ## 실행 환경
 ### 라즈베리파이4 회로구성
+<br/>
 ![image](https://github.com/user-attachments/assets/1dfe6ec7-db6a-489b-b3e8-81b5fe89c782)<br/>
 세그먼트 연결 시 방향 주의!
 <br/><br/>
